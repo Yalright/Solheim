@@ -1,0 +1,36 @@
+/* 
+ * WordPress Gutenberg Editor Styles
+ * This file contains styles that only apply to the WordPress Gutenberg editor
+ */
+
+/* Import Typekit fonts */
+// @import url('https://use.typekit.net/nud4yfn.css');
+
+/* Import variables first so they're available throughout the file */
+// Global base
+@import "global/_variables";
+@import "global/_fonts";
+@import "global/_mixin";
+
+/* Scope all theme styles to Gutenberg content area only */
+.editor-styles-wrapper {
+  @import "main.scss";
+
+  .wp-block {
+    max-width: 100% !important;
+  }
+}
+
+/* Additional editor-only styles */
+// .editor-post-title__block .editor-post-title__input {
+//   font-family: "museo-sans", sans-serif !important;
+//   font-weight: 700;
+//   color: $white !important;
+// }
+
+/* Ensure block toolbar and UI components also use the correct font */
+// .components-button, 
+// .block-editor-block-toolbar, 
+// .components-panel__body-title {
+//   font-family: "museo-sans", sans-serif !important;
+// }

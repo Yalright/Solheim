@@ -1,0 +1,66 @@
+.landing-page-button {
+    font-family: $body-font;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 22px;
+    line-height: 1;
+    display: inline-block;
+    letter-spacing: 0.05em;
+    border-radius: 0;
+    transition: all 0.3s;
+}
+
+.landing-page-button--white-outline-trans {
+  background: transparent;
+  color: $white;
+  border: 1px solid $white;
+
+  &:hover {
+    background: $white;
+    color: $black;
+  }
+}
+
+.landing-page-button--minimal-white {
+  background: transparent;
+  color: $white;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: $white;
+  text-underline-offset: 3px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.landing-page-button--filled-red {
+  background: $theme-red;
+  color: $white;
+  border: 0;
+}
+
+.landing-page-button--red-outline-trans {
+  background: transparent;
+  color: $theme-red;
+  border: 1px solid $theme-red;
+
+  &:hover {
+    background: $theme-red;
+    color: $white;
+  }
+}
+
+.landing-page-button--filled-red-to-outline {
+  background: $theme-red;
+  color: $white;
+  border: 1px solid $theme-red;
+
+  &:hover {
+    background: transparent;
+    color: $theme-red;
+    border-color: $theme-red;
+  }
+}
+

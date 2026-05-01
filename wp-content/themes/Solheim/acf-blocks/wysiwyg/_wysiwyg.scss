@@ -1,0 +1,23 @@
+.wysiwyg {
+    // padding: 40px 0;
+
+    .container {
+        padding:30px 30px;
+        @include mq(large-up) {
+            padding: 55px 180px;
+        }
+        .wysiwyg-container {
+            p {
+                @include text-20-300;
+                word-break: break-word;
+                @include mq(large-up) {
+                    @include heading-30-300;
+                }
+                + p {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+}

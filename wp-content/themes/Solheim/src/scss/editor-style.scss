@@ -1,0 +1,15 @@
+/* 
+ * WordPress Gutenberg Editor Styles
+ * This file contains styles that only apply to the WordPress Gutenberg editor
+ */
+
+/* Import Typekit fonts */
+// @import url('https://use.typekit.net/nud4yfn.css');
+
+/* Import variables first so they're available throughout the file */
+// Global base
+@import "global/_variables";
+@import "global/_fonts";
+@import "global/_mixin";
+@import "global/_typography-mixins";
+@import "global/_typography";

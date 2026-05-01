@@ -1,0 +1,149 @@
+// Base and Global fonts live here
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+span {
+  font-family: $body-font;
+}
+
+// Specific heading styling
+h1 {
+  @include font-h1;
+}
+
+h2 {
+  @include font-h2;
+}
+
+h3 {
+  @include font-h3;
+}
+
+h4 {
+  @include font-h4;
+}
+
+h5 {}
+
+h6 {}
+
+ol,
+ul {
+  margin-left: spx(4);
+  margin-bottom: spx(4);
+
+  li {
+    @include font-body;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $primary-colour;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Highlight Selections - can't be added together has to be handled separate
+p,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+span {
+  &::selection {
+    background: $secondary-colour;
+  }
+
+  &::-moz-selection {
+    background: $secondary-colour;
+  }
+}
+
+
+.Big-Page-Heading-500 {
+  @include Big-Page-Heading-500;
+}
+
+.heading-40-500 {
+  @include heading-40-500;
+}
+
+.heading-40-700 {
+  @include heading-40-700;
+}
+
+.heading-30-300 {
+  @include text-20-500;
+
+  @include mq(large-up) {
+    @include heading-30-300;
+  }
+}
+
+.heading-30-500 {
+  @include text-20-500;
+
+  @include mq(large-up) {
+    @include heading-30-500;
+  }
+}
+
+.text-20-300 {
+  @include text-20-300;
+}
+
+.text-20-500 {
+  @include text-20-500;
+}
+
+.text-20-700 {
+  @include text-20-700;
+}
+
+.text-16-300 {
+  @include text-16-300;
+}
+
+.text-16-500 {
+  @include text-16-500;
+}
+
+.text-16-700 {
+  @include text-16-700;
+}
+
+.text-12-700 {
+  @include text-12-700;
+}
+
+.text-12-500 {
+  @include text-12-500;
+}
+
+.heading-30-700 {
+  @include heading-30-700;
+}
+
+.Mobile-20-Text-300 {
+  @include Mobile-20-Text-300;
+}
+
+.Footer-Links {
+  @include Footer-Links;
+}
+
+.Mobile-20-Text-500 {
+  @include Mobile-20-Text-500;
+}

@@ -1,0 +1,71 @@
+// Colours
+$white: #ffffff;
+$black: #000000;
+$stone: #ebe8e3;
+
+// Theme brand colours
+$theme-red: #6E1631;
+$theme-raspberry: #6E1631;
+$theme-olive: #877d56;
+$theme-olive-300: #ADAC86;
+$theme-grey: #DDD6CC;
+$theme-sand: $theme-grey;
+$plum: #270719;
+$cassis: #270719;
+$cassis-shade: #411f2b;
+$orange: #e17b30;
+$arancia: #e17b30;
+
+// Colour Palette & Classes
+// Same palette colours defined in functions.php
+$palette-colors: (
+  ("theme-white", $white),
+  ("theme-black", $black),
+  ("theme-red", $theme-red),
+  ("theme-raspberry", $theme-raspberry),
+  ("theme-olive", $theme-olive),
+  ("theme-olive-300", $theme-olive-300),
+  ("theme-grey", $theme-grey),
+  ("theme-sand", $theme-sand),
+  ("theme-stone", $stone),
+  ("theme-plum", $plum),
+  ("theme-cassis", $cassis),
+  ("theme-orange", $orange),
+  ("theme-arancia", $arancia)
+);
+
+.guten-block {
+  position: relative;
+  z-index: 1;
+
+  &.has-background,
+  .has-background {
+    @each $color in $palette-colors {
+      &.has-#{nth($color,1)}-background-color {
+        background-color: nth($color, 2);
+      }
+    }
+  }
+
+  &.has-text-color,
+  .has-text-color {
+    @each $color in $palette-colors {
+      &.has-#{nth($color,1)}-color {
+        color: nth($color, 2) !important;
+
+        a {
+          color: nth($color, 2) !important;
+          text-decoration: underline !important;
+
+          &:hover {
+            color: nth($color, 2) !important;
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+$primary-colour: $white;
+$secondary-colour: $black;

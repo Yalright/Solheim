@@ -1,0 +1,46 @@
+.post-single-template {
+    .container-content {
+        padding:40px;
+        .breadcrumbs {
+            ul {
+                @include ulListReset;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                li {
+                    a {
+                        text-decoration: none;
+                        &:hover {
+                            color: $theme-red;
+                        }
+                    }
+                    &:after {
+                        content: ">";
+                        margin-left: 10px;
+                    }
+                    &:last-child {
+                        &:after {
+                            content: none;
+                        }
+                    }
+                }
+            }
+            + .post-content {
+                margin-top: 40px;
+            }
+        }
+        .post-content {
+            h2 {
+                @include heading-30-300;
+            }
+            a {
+                color:$black !important;
+                text-decoration: underline;
+                &:hover {
+                    color:$black !important;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,132 @@
+@mixin transition {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+// Media screen breakpoints
+$break-xxlarge: 1600px;
+$break-xlarge: 1200px;
+$break-large: 1024px;
+// 992 or 1024 ?
+$break-medium: 768px;
+$break-small: 350px;
+
+@mixin mq($breakpoint) {
+  @if $breakpoint == xlarge-down {
+    @media only screen and (max-width: #{$break-xlarge}) {
+      @content;
+    }
+  }
+  @if $breakpoint == xxlarge-up {
+    @media only screen and (min-width: #{$break-xxlarge}) {
+      @content;
+    }
+  }
+  @if $breakpoint == xlarge-up {
+    @media only screen and (min-width: #{$break-xlarge}) {
+      @content;
+    }
+  }
+  @if $breakpoint == large-down {
+    @media only screen and (max-width: #{$break-large}) {
+      @content;
+    }
+  }
+  @if $breakpoint == large-up {
+    @media only screen and (min-width: #{$break-large}) {
+      @content;
+    }
+  }
+  @if $breakpoint == large-only {
+    @media only screen and (min-width: #{$break-large}) and (max-width: #{$break-xxlarge}) {
+      @content;
+    }
+  }
+  @if $breakpoint == medium-down {
+    @media only screen and (max-width: #{$break-medium}) {
+      @content;
+    }
+  }
+  @if $breakpoint == medium-up {
+    @media only screen and (min-width: #{$break-medium}) {
+      @content;
+    }
+  }
+  @if $breakpoint == medium-only {
+    @media only screen and (min-width: #{$break-medium}) and (max-width: #{$break-large}) {
+      @content;
+    }
+  }
+  @if $breakpoint == small-only {
+    @media only screen and (min-width: 0px) and (max-width: #{$break-medium}) {
+      @content;
+    }
+  }
+  @if $breakpoint == extra-small-only {
+    @media only screen and (min-width: 0px) and (max-width: #{$break-small}) {
+      @content;
+    }
+  }
+}
+
+// Rem calculations
+$rem-base: 16px;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) {
+    $value: 0;
+  } // Turn 0rem into 0
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append(
+      $remValues,
+      convert-to-rem(nth($values, $i), $base-value)
+    );
+  }
+  @return $remValues;
+}
+
+@mixin buttonReset {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin variant($selector) {
+  @at-root #{$selector}#{&} {
+    @content;
+  }
+}
+
+@mixin visually-hidden {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+@mixin ulListReset {
+  padding:0;
+  margin:0;
+  list-style:none;
+}

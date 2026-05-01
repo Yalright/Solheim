@@ -1,0 +1,77 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 2,
+    "settings": {
+      "color": {
+        "palette": [
+          {
+            "name": "White",
+            "slug": "theme-white",
+            "color": "#ffffff"
+          },
+          {
+            "name": "Black",
+            "slug": "theme-black",
+            "color": "#000000"
+          },
+          {
+            "name": "Red",
+            "slug": "theme-red",
+            "color": "#6E1631"
+          },
+          {
+            "name": "Raspberry",
+            "slug": "theme-raspberry",
+            "color": "#6E1631"
+          },
+          {
+            "name": "Olive",
+            "slug": "theme-olive",
+            "color": "#877d56"
+          },
+          {
+            "name": "Olive-300",
+            "slug": "theme-olive-300",
+            "color": "#ADAC86"
+          },
+          {
+            "name": "Theme Grey",
+            "slug": "theme-grey",
+            "color": "#DDD6CC"
+          },
+          {
+            "name": "Sand",
+            "slug": "theme-sand",
+            "color": "#DDD6CC"
+          },
+          {
+            "name": "Stone",
+            "slug": "theme-stone",
+            "color": "#ebe8e3"
+          },
+          {
+            "name": "Plum",
+            "slug": "theme-plum",
+            "color": "#270719"
+          },
+          {
+            "name": "Cassis",
+            "slug": "theme-cassis",
+            "color": "#270719"
+          },
+          {
+            "name": "Orange",
+            "slug": "theme-orange",
+            "color": "#e17b30"
+          },
+          {
+            "name": "Arancia",
+            "slug": "theme-arancia",
+            "color": "#e17b30"
+          }
+        ],
+        "custom": false
+      }
+    }
+  }
+  

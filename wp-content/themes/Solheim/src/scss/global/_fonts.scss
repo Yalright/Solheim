@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "NeueHaasDisplay";
+  src: url("../fonts/NeueHaasDisplay-Light.woff2") format("woff2"),
+    url("../fonts/NeueHaasDisplay-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueHaasDisplay";
+  src: url("../fonts/NeueHaasDisplay-Mediu.woff2") format("woff2"),
+    url("../fonts/NeueHaasDisplay-Mediu.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Moisette";
+  src: url("../fonts/Moisette-Light.woff2") format("woff2"),
+    url("../fonts/Moisette-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Moisette";
+  src: url("../fonts/Moisette-LightItalic.woff2") format("woff2"),
+    url("../fonts/Moisette-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JaneAusten";
+  src: url("../fonts/JaneAusten.woff2") format("woff2"),
+    url("../fonts/JaneAusten.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Font Families
+$body-font: "NeueHaasDisplay", sans-serif;
+$heading-font: "Moisette", serif;
+$flourish-font: "JaneAusten", cursive;
+
+$sans-serif-font: "NeueHaasDisplay", sans-serif;
+$serif-font: "Moisette", serif;
+$cursive-font: "JaneAusten", cursive;
+
+// Backwards-compatible aliases (phase these out)
+$primary-font: $body-font;
+$secondary-font: $body-font;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
