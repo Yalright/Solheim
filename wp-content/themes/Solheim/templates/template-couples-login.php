@@ -57,7 +57,7 @@ $overlay_logo_alt = is_array($overlay_logo) && !empty($overlay_logo['alt']) ? $o
                     if (!empty($form_shortcode)) {
                         echo do_shortcode($form_shortcode);
                     }
-                    lalista_render_end_of_login_form(apply_filters('lalista_login_register_url', '#', 'couples'));
+                    solheim_render_end_of_login_form(apply_filters('solheim_login_register_url', '#', 'couples'));
                     ?>
                 </div>
             </div>

@@ -50,9 +50,8 @@ function my_tiny_mce_before_init($mceInit)
     // Expose theme font families in the TinyMCE "Font family" dropdown.
     // These should match the @font-face declarations in `src/scss/global/_fonts.scss`.
     $mceInit['font_formats'] = implode(';', array(
-        'Neue Haas Display=NeueHaasDisplay,sans-serif',
-        'Moisette=Moisette,serif',
-        'Jane Austen=JaneAusten,cursive',
+        'Gotham=Gotham,sans-serif',
+        'Zuume=Zuume,sans-serif',
     ));
 
     return $mceInit;

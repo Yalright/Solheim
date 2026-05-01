@@ -60,7 +60,6 @@ function my_block_plugin_editor_scripts()
 
 	// Enqueue block editor styles
 	wp_enqueue_style('site-css-admin', get_template_directory_uri() . $admin_css_rel, array(), $admin_css_ver);
-	wp_enqueue_style('typekit', 'https://use.typekit.net/nud4yfn.css', array(), '1');
 
 	// wp_enqueue_style('fontawesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css', array(), 'all');
 	// wp_enqueue_style('slick-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css', array(), 'all');

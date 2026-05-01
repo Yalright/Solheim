@@ -1,7 +1,7 @@
 {
-  "name": "yalright-starter-theme",
+  "name": "solheim-theme",
   "version": "1.0.0",
-  "description": "A new Yalright Digital WordPress Theme",
+  "description": "Solheim WordPress theme",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

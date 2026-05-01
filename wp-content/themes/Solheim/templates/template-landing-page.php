@@ -24,7 +24,7 @@ get_header();
                 ?>
             </div>
             <div class="container landing-page-logo-container">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-lalista-landing.svg'); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-solheim-landing.svg'); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
             </div>
         </div>
     </section>

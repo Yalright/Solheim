@@ -6,72 +6,46 @@
         "palette": [
           {
             "name": "White",
-            "slug": "theme-white",
+            "slug": "white",
             "color": "#ffffff"
           },
           {
             "name": "Black",
-            "slug": "theme-black",
+            "slug": "black",
             "color": "#000000"
           },
           {
+            "name": "Navy",
+            "slug": "navy",
+            "color": "#0F1A3D"
+          },
+          {
+            "name": "Blue",
+            "slug": "blue",
+            "color": "#1452DE"
+          },
+          {
+            "name": "Yellow",
+            "slug": "yellow",
+            "color": "#ffcc00"
+          },
+          {
+            "name": "Green",
+            "slug": "green",
+            "color": "#006336"
+          },
+          {
             "name": "Red",
-            "slug": "theme-red",
-            "color": "#6E1631"
+            "slug": "red",
+            "color": "#bb133e"
           },
           {
-            "name": "Raspberry",
-            "slug": "theme-raspberry",
-            "color": "#6E1631"
-          },
-          {
-            "name": "Olive",
-            "slug": "theme-olive",
-            "color": "#877d56"
-          },
-          {
-            "name": "Olive-300",
-            "slug": "theme-olive-300",
-            "color": "#ADAC86"
-          },
-          {
-            "name": "Theme Grey",
-            "slug": "theme-grey",
-            "color": "#DDD6CC"
-          },
-          {
-            "name": "Sand",
-            "slug": "theme-sand",
-            "color": "#DDD6CC"
-          },
-          {
-            "name": "Stone",
-            "slug": "theme-stone",
-            "color": "#ebe8e3"
-          },
-          {
-            "name": "Plum",
-            "slug": "theme-plum",
-            "color": "#270719"
-          },
-          {
-            "name": "Cassis",
-            "slug": "theme-cassis",
-            "color": "#270719"
-          },
-          {
-            "name": "Orange",
-            "slug": "theme-orange",
-            "color": "#e17b30"
-          },
-          {
-            "name": "Arancia",
-            "slug": "theme-arancia",
-            "color": "#e17b30"
+            "name": "Light red",
+            "slug": "light-red",
+            "color": "#bb133e"
           }
         ],
         "custom": false
       }
     }
   }
-  

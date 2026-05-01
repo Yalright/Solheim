@@ -27,6 +27,7 @@ function compileSASS() {
     .src([
       buildpath + "/scss/main.scss",
       buildpath + "/scss/main-admin.scss",
+      buildpath + "/scss/editor-style.scss",
     ])
     .pipe(gulpif(args.env != "production", sourcemaps.init()))
     .pipe(sass({ outputStyle: "compressed" }))

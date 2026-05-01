@@ -1,62 +1,42 @@
 @font-face {
-  font-family: "NeueHaasDisplay";
-  src: url("../fonts/NeueHaasDisplay-Light.woff2") format("woff2"),
-    url("../fonts/NeueHaasDisplay-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "NeueHaasDisplay";
-  src: url("../fonts/NeueHaasDisplay-Mediu.woff2") format("woff2"),
-    url("../fonts/NeueHaasDisplay-Mediu.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Moisette";
-  src: url("../fonts/Moisette-Light.woff2") format("woff2"),
-    url("../fonts/Moisette-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Moisette";
-  src: url("../fonts/Moisette-LightItalic.woff2") format("woff2"),
-    url("../fonts/Moisette-LightItalic.woff") format("woff");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JaneAusten";
-  src: url("../fonts/JaneAusten.woff2") format("woff2"),
-    url("../fonts/JaneAusten.woff") format("woff");
+  font-family: "Gotham";
+  src: url("../fonts/Gotham%20Book.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham%20Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Zuume";
+  src: url("../fonts/zuume-bold.woff2") format("woff2"),
+    url("../fonts/zuume-bold.woff") format("woff"),
+    url("../fonts/zuume-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 // Font Families
-$body-font: "NeueHaasDisplay", sans-serif;
-$heading-font: "Moisette", serif;
-$flourish-font: "JaneAusten", cursive;
+$body-font: "Gotham", sans-serif;
+$heading-font: "Zuume", sans-serif;
+$flourish-font: $heading-font;
 
-$sans-serif-font: "NeueHaasDisplay", sans-serif;
-$serif-font: "Moisette", serif;
-$cursive-font: "JaneAusten", cursive;
+$sans-serif-font: $body-font;
+$serif-font: $heading-font;
+$cursive-font: $heading-font;
 
-// Backwards-compatible aliases (phase these out)
 $primary-font: $body-font;
 $secondary-font: $body-font;
 
-* {
+%font-smoothing {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

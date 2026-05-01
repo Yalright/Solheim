@@ -3,7 +3,7 @@ html {
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  background: $theme-sand;
+  background: $white;
   font-family: $body-font;
 
 }
@@ -11,7 +11,7 @@ html {
 body {
   overflow-x: hidden;
   font-family: $body-font;
-  background: $theme-sand;
+  background: $white;
 
   a {
     font-family: $body-font;
@@ -64,7 +64,7 @@ figure {
   }
 
   &-purple {
-    background: $theme-sand;
+    background: $white;
   }
 
   &-white {
@@ -187,7 +187,7 @@ body {
     border: 1px solid $black;
 
     &:hover {
-      background: $theme-red;
+      background: $red;
       color: $white;
     }
 
@@ -241,7 +241,7 @@ body {
 
 
   color: $white;
-  background: $theme-red;
+  background: $red;
   // font-size: rem-calc(12);
   width: 200px;
   height: 200px;
@@ -286,7 +286,7 @@ body {
     header &,
     footer & {
 
-      background: linear-gradient(180deg, $theme-red 0%, $theme-sand 100%);
+      background: linear-gradient(180deg, $red 0%, $white 100%);
       color: $white;
     }
   }
@@ -335,7 +335,7 @@ body {
   }
 
   &-purple {
-    background: $theme-sand;
+    background: $white;
   }
 
 

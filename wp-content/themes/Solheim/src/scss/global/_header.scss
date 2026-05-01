@@ -99,7 +99,7 @@
         position: fixed;
         inset: 0;
         top: 0;
-        background: $theme-raspberry;
+        background: $red;
         z-index: 900;
         display: flex;
         align-items: center;
@@ -132,10 +132,10 @@
         a {
             color: $white;
             text-decoration: none;
-            font-family: $serif-font;
+            font-family: $heading-font;
             font-size: rem-calc(70);
-            font-style: italic;
-            font-weight: 300;
+            font-style: normal;
+            font-weight: 700;
             line-height: 1;
             letter-spacing: -5%;
         }
@@ -259,11 +259,11 @@ header.header {
                 transition: all 0.3s ease-in-out;
 
                 &:nth-child(1) {
-                    background: $theme-red;
+                    background: $red;
                 }
 
                 &:nth-child(2) {
-                    background: $theme-sand;
+                    background: $white;
                 }
 
                 &:nth-child(3) {
@@ -460,7 +460,7 @@ header.header {
                     &.active {
                         @include mq(large-down) {
                             >a {
-                                background: $theme-sand;
+                                background: $white;
                                 margin: 0 -20px;
                                 padding-left: 20px;
                                 padding-right: 20px;
@@ -509,7 +509,7 @@ header.header {
                         opacity: 1;
                         visibility: visible;
                         transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-                        // background: rgba($theme-sand, 0.1);
+                        // background: rgba($white, 0.1);
                     }
 
                     li {
@@ -535,7 +535,7 @@ header.header {
                             display: block;
 
                             &:hover {
-                                // color: $theme-red;
+                                // color: $red;
                             }
 
                             @include mq(large-down) {

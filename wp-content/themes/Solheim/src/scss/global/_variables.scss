@@ -1,37 +1,26 @@
 // Colours
 $white: #ffffff;
 $black: #000000;
-$stone: #ebe8e3;
 
-// Theme brand colours
-$theme-red: #6E1631;
-$theme-raspberry: #6E1631;
-$theme-olive: #877d56;
-$theme-olive-300: #ADAC86;
-$theme-grey: #DDD6CC;
-$theme-sand: $theme-grey;
-$plum: #270719;
-$cassis: #270719;
-$cassis-shade: #411f2b;
-$orange: #e17b30;
-$arancia: #e17b30;
+// Brand colours
+$navy: #0f1a3d;
+$blue: #1452de;
+$yellow: #ffcc00;
+$green: #006336;
+$red: #bb133e;
+$light-red: #bb133e;
 
 // Colour Palette & Classes
-// Same palette colours defined in functions.php
+// Same palette colours defined in theme.json
 $palette-colors: (
-  ("theme-white", $white),
-  ("theme-black", $black),
-  ("theme-red", $theme-red),
-  ("theme-raspberry", $theme-raspberry),
-  ("theme-olive", $theme-olive),
-  ("theme-olive-300", $theme-olive-300),
-  ("theme-grey", $theme-grey),
-  ("theme-sand", $theme-sand),
-  ("theme-stone", $stone),
-  ("theme-plum", $plum),
-  ("theme-cassis", $cassis),
-  ("theme-orange", $orange),
-  ("theme-arancia", $arancia)
+  ("white", $white),
+  ("black", $black),
+  ("navy", $navy),
+  ("blue", $blue),
+  ("yellow", $yellow),
+  ("green", $green),
+  ("red", $red),
+  ("light-red", $light-red)
 );
 
 .guten-block {

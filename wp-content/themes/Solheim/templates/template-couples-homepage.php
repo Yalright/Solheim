@@ -88,7 +88,7 @@ $background_image_url = is_array($background_image) && !empty($background_image[
     ?>
 
     <section class="couples-home-section-split-1">
-        <img class="couples-home-section-split-1-bg-logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/la-lista-red.svg'); ?>" alt="" />
+        <img class="couples-home-section-split-1-bg-logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/solheim-mark.svg'); ?>" alt="" />
 
         <div class="container couples-home-section-split-1-inner">
             <div class="couples-home-section-split-1-col couples-home-section-split-1-col-1">

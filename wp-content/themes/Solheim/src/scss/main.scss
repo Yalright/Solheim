@@ -21,48 +21,9 @@
 @import "global/_footer";
 @import "global/_header";
 
-// Templates
-@import "templates/_template-landing-page";
-@import "templates/_template-directory-entry";
-@import "templates/_template-login-forms";
-@import "templates/_shortcode-forgot-password";
-@import "templates/_template-article-1";
-@import "templates/_template-article-2";
-@import "templates/_template-article-3";
-@import "templates/_template-article-related-slider";
-@import "templates/_template-article-promo";
-@import "templates/_template-couples-login";
-@import "templates/_template-vendors-login";
-@import "templates/_single-vendor";
-@import "templates/_template-results-grid";
-@import "templates/_template-couples-homepage";
-@import "templates/_template-vendors-homepage";
-
 // Blocks
-// @import "acf-blocks/_hero-banner";
 @import "../../acf-blocks/block-settings/block-settings";
-@import "../../acf-blocks/hero/hero";
-@import "../../acf-blocks/offset-content/offset-content";
-@import "../../acf-blocks/offset-media-content/offset-media-content";
-@import "../../acf-blocks/magazine-coming-soon/magazine-coming-soon";
-@import "../../acf-blocks/directory-slider/directory-slider";
-@import "../../acf-blocks/shop-coming-soon/shop-coming-soon";
-@import "../../acf-blocks/events-coming-soon/events-coming-soon";
-@import "../../acf-blocks/content-bar/content-bar";
-@import "../../acf-blocks/image-testimonial-slider/image-testimonial-slider";
-@import "../../acf-blocks/image-content/image-content";
-@import "../../acf-blocks/hero-cta/hero-cta";
-@import "../../acf-blocks/hero-featured-post/hero-featured-post";
-@import "../../acf-blocks/image-featured/image-featured";
-@import "../../acf-blocks/quote-content/quote-content";
-@import "../../acf-blocks/statistics/statistics";
-@import "../../acf-blocks/image-overlay-content/image-overlay-content";
-@import "../../acf-blocks/image-slider/image-slider";
-@import "../../acf-blocks/tabs/tabs";
-@import "../../acf-blocks/content-socials/content-socials";
-@import "../../acf-blocks/magazine-hero/magazine-hero";
-// @import "../../acf-blocks/text-overlay-banner/text-overlay-banner";
-
+@import "../../acf-blocks/wysiwyg/wysiwyg";
 
 // Blocks (Flex)
 

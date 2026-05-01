@@ -7,5 +7,5 @@ add_action('init', function () {
 
 register_block_pattern_category(
   'custom-patterns',
-  array('label' => __('Custom Patterns', 'yalright-theme'))
+  array('label' => __('Custom Patterns', 'solheim'))
 );

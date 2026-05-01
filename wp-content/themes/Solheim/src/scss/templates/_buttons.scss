@@ -36,31 +36,31 @@
 }
 
 .landing-page-button--filled-red {
-  background: $theme-red;
+  background: $red;
   color: $white;
   border: 0;
 }
 
 .landing-page-button--red-outline-trans {
   background: transparent;
-  color: $theme-red;
-  border: 1px solid $theme-red;
+  color: $red;
+  border: 1px solid $red;
 
   &:hover {
-    background: $theme-red;
+    background: $red;
     color: $white;
   }
 }
 
 .landing-page-button--filled-red-to-outline {
-  background: $theme-red;
+  background: $red;
   color: $white;
-  border: 1px solid $theme-red;
+  border: 1px solid $red;
 
   &:hover {
     background: transparent;
-    color: $theme-red;
-    border-color: $theme-red;
+    color: $red;
+    border-color: $red;
   }
 }
 

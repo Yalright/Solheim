@@ -2,6 +2,7 @@
   font-size: rem-calc(42);
   line-height: rem-calc(46);
   font-family: $heading-font;
+  font-weight: 700;
 
   @include mq(large-up) {
     font-size: rem-calc(42);
@@ -14,6 +15,7 @@
   font-size: rem-calc(27);
   line-height: rem-calc(41);
   font-family: $heading-font;
+  font-weight: 700;
 
   @include mq(large-up) {
     font-size: rem-calc(40);
@@ -25,6 +27,7 @@
   font-size: rem-calc(20);
   line-height: rem-calc(24);
   font-family: $heading-font;
+  font-weight: 700;
   padding-bottom:12px;
 
   @include mq(large-up) {
@@ -37,6 +40,7 @@
   font-size: rem-calc(22);
   line-height: rem-calc(36);
   font-family: $heading-font;
+  font-weight: 700;
 
   @include mq(large-up) {
     font-size: rem-calc(25);
@@ -49,6 +53,7 @@
   font-size: rem-calc(16);
   line-height: rem-calc(26);
   font-family: $body-font;
+  font-weight: 400;
 
   @include mq(large-up) {
     font-size: rem-calc(18);
