@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/cards-standard",
+  "title": "Cards (Standard)",
+  "description": "Standard card grid without overlay.",
+  "category": "custom-blocks",
+  "icon": "screenoptions",
+  "keywords": ["cards", "grid"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "cards-standard.php"
+  }
+}

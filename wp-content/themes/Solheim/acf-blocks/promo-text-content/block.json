@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/promo-text-content",
+  "title": "Promo Text + content",
+  "description": "Promotional heading with rich content.",
+  "category": "custom-blocks",
+  "icon": "editor-table",
+  "keywords": ["promo", "content"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "promo-text-content.php"
+  }
+}

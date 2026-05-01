@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/image-content",
+  "title": "Image + Content",
+  "description": "Image alongside text content.",
+  "category": "custom-blocks",
+  "icon": "align-pull-right",
+  "keywords": ["image", "content"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "image-content.php"
+  }
+}

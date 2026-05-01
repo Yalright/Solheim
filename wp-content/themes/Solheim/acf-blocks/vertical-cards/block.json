@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/vertical-cards",
+  "title": "Vertical Cards",
+  "description": "Stacked vertical card layout.",
+  "category": "custom-blocks",
+  "icon": "list-view",
+  "keywords": ["cards", "vertical"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "vertical-cards.php"
+  }
+}

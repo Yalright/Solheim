@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/image-slider",
+  "title": "Image Slider",
+  "description": "Image carousel / slider.",
+  "category": "custom-blocks",
+  "icon": "images-alt2",
+  "keywords": ["slider", "carousel"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "image-slider.php"
+  }
+}

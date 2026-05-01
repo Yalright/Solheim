@@ -11,7 +11,7 @@ require get_template_directory() . '/functions/acf-gutenberg-blocks.php';
 require get_template_directory() . '/functions/media.php';
 require get_template_directory() . '/functions/user-roles.php';
 require get_template_directory() . '/functions/theme-support.php';
-// require get_template_directory() . '/functions/allowed-blocks.php';
+require get_template_directory() . '/functions/allowed-blocks.php';
 // require get_template_directory() . '/functions/patterns.php';
 
 // Page Slug Body Class

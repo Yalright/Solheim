@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/cards-overlayed",
+  "title": "Cards (Overlayed)",
+  "description": "Card grid with overlay treatment.",
+  "category": "custom-blocks",
+  "icon": "screenoptions",
+  "keywords": ["cards", "overlay"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "cards-overlayed.php"
+  }
+}

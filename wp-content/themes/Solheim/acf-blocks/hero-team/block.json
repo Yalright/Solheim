@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/hero-team",
+  "title": "Hero - Team",
+  "description": "Hero highlighting the team.",
+  "category": "custom-blocks",
+  "icon": "groups",
+  "keywords": ["hero", "team"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "hero-team.php"
+  }
+}

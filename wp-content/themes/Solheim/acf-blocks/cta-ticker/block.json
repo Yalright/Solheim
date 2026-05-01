@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/cta-ticker",
+  "title": "CTA Ticker",
+  "description": "Scrolling or static CTA ticker.",
+  "category": "custom-blocks",
+  "icon": "megaphone",
+  "keywords": ["cta", "ticker"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "cta-ticker.php"
+  }
+}

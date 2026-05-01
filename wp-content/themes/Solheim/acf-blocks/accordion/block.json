@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/accordion",
+  "title": "Accordion",
+  "description": "Expandable accordion panels.",
+  "category": "custom-blocks",
+  "icon": "menu",
+  "keywords": ["accordion", "faq"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "accordion.php"
+  }
+}

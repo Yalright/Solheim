@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/hero-video",
+  "title": "Hero + Video",
+  "description": "Hero section with background or featured video.",
+  "category": "custom-blocks",
+  "icon": "video-alt3",
+  "keywords": ["hero", "video"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "hero-video.php"
+  }
+}

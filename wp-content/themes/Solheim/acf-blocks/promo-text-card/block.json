@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/promo-text-card",
+  "title": "Promo Text + Card",
+  "description": "Promotional text with highlighted card.",
+  "category": "custom-blocks",
+  "icon": "index-card",
+  "keywords": ["promo", "card"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "promo-text-card.php"
+  }
+}

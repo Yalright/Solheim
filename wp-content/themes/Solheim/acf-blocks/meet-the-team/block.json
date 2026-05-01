@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/meet-the-team",
+  "title": "Meet The Team",
+  "description": "Team members grid or list.",
+  "category": "custom-blocks",
+  "icon": "id",
+  "keywords": ["team", "people"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "meet-the-team.php"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/promotional-image-text",
+  "title": "Promotional - Image + Text",
+  "description": "Promotional block with image and text.",
+  "category": "custom-blocks",
+  "icon": "align-left",
+  "keywords": ["promo", "image", "text"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "promotional-image-text.php"
+  }
+}

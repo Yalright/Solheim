@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/logo-bar",
+  "title": "Logo bar",
+  "description": "Row of partner or client logos.",
+  "category": "custom-blocks",
+  "icon": "grid-view",
+  "keywords": ["logos", "brands"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "logo-bar.php"
+  }
+}

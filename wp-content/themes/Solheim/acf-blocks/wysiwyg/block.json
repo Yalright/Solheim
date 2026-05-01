@@ -1,21 +1,19 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "name": "acf/wysiwyg",
-    "title": "Wysiwyg",
-    "description": "Displays a Wysiwyg component with various styles.",
-    "category": "custom-blocks",
-    "icon": "cover-image",
-    "keywords": ["content", "banner", "media"],
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/wysiwyg",
+  "title": "Wysiwyg",
+  "description": "Displays a Wysiwyg component with various styles.",
+  "category": "custom-blocks",
+  "icon": "cover-image",
+  "keywords": ["content", "banner", "media"],
+  "supports": {
+    "mode": true,
+    "html": false,
+    "align": true
+  },
+  "acf": {
     "mode": "auto",
-    "supports": {
-        "mode": true,
-        "html": false,
-        "align": true
-    },
-    "acf": {
-        "mode": "auto",
-        "renderTemplate": "wysiwyg.php"
-    },
-    "editorScript": "file:./wysiwyg.js",
-    "editorStyle": "file:./wysiwyg-editor.css"
+    "renderTemplate": "wysiwyg.php"
+  }
 }

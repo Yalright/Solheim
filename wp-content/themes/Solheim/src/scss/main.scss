@@ -21,8 +21,30 @@
 @import "global/_footer";
 @import "global/_header";
 
-// Blocks
+// Blocks (ACF — import matches folder / partial name)
 @import "../../acf-blocks/block-settings/block-settings";
+@import "../../acf-blocks/accordion/accordion";
+@import "../../acf-blocks/cards-overlayed/cards-overlayed";
+@import "../../acf-blocks/cards-standard/cards-standard";
+@import "../../acf-blocks/contact-form/contact-form";
+@import "../../acf-blocks/cta-ticker/cta-ticker";
+@import "../../acf-blocks/hero/hero";
+@import "../../acf-blocks/hero-cta/hero-cta";
+@import "../../acf-blocks/hero-team/hero-team";
+@import "../../acf-blocks/hero-testimonial/hero-testimonial";
+@import "../../acf-blocks/hero-video/hero-video";
+@import "../../acf-blocks/image-content/image-content";
+@import "../../acf-blocks/image-slider/image-slider";
+@import "../../acf-blocks/latest-news/latest-news";
+@import "../../acf-blocks/logo-bar/logo-bar";
+@import "../../acf-blocks/meet-the-team/meet-the-team";
+@import "../../acf-blocks/newsletter/newsletter";
+@import "../../acf-blocks/promo-text-card/promo-text-card";
+@import "../../acf-blocks/promo-text-content/promo-text-content";
+@import "../../acf-blocks/promotional-image-text/promotional-image-text";
+@import "../../acf-blocks/rolex-banner/rolex-banner";
+@import "../../acf-blocks/team-promo/team-promo";
+@import "../../acf-blocks/vertical-cards/vertical-cards";
 @import "../../acf-blocks/wysiwyg/wysiwyg";
 
 // Blocks (Flex)

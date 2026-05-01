@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/rolex-banner",
+  "title": "Rolex banner",
+  "description": "Rolex branded banner module.",
+  "category": "custom-blocks",
+  "icon": "format-image",
+  "keywords": ["rolex", "banner"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "rolex-banner.php"
+  }
+}

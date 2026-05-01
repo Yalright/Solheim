@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/hero-cta",
+  "title": "Hero + CTA",
+  "description": "Hero with call-to-action.",
+  "category": "custom-blocks",
+  "icon": "button",
+  "keywords": ["hero", "cta"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "hero-cta.php"
+  }
+}

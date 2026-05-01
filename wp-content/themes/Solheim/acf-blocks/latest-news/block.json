@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/latest-news",
+  "title": "Latest News",
+  "description": "Latest posts or news listing.",
+  "category": "custom-blocks",
+  "icon": "admin-post",
+  "keywords": ["news", "posts"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "latest-news.php"
+  }
+}

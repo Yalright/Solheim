@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/hero-testimonial",
+  "title": "Hero - Testimonial",
+  "description": "Hero with testimonial content.",
+  "category": "custom-blocks",
+  "icon": "format-quote",
+  "keywords": ["hero", "testimonial"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "hero-testimonial.php"
+  }
+}

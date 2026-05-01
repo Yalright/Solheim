@@ -6,7 +6,7 @@
 
 
 // Include block settings and get the returned array
-$block_data = include get_stylesheet_directory() . '/acf-blocks/block-settings/block-settings.php';
+$block_data = include get_template_directory() . '/acf-blocks/block-settings/block-settings.php';
 
 // Extract values from the returned array
 $style_classes = $block_data['style_classes'];
