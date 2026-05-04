@@ -1,3 +1,67 @@
 .hero {
-  // TBD
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  overflow: hidden;
+
+  &--style-1 {
+    height: calc(100vh - 150px);
+  }
+
+  &--style-2 {
+    height: 65vh;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__bg--mobile {
+    display: block;
+
+    @include mq(large-up) {
+      display: none;
+    }
+  }
+
+  &__bg--desktop {
+    display: none;
+
+    @include mq(large-up) {
+      display: block;
+    }
+  }
+
+  &__countdown {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: auto;
+    display: inline-block;
+    background-color: $white;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: $heading-font;
+    font-size: rem-calc(29);
+    line-height: 1.15;
+    text-align: center;
+    text-transform: uppercase;
+    color: $navy;
+    white-space: nowrap;
+  }
+
+  &__countdown-label {
+    font-family: inherit;
+    font-weight: 400;
+  }
+
+  &__countdown-value {
+    font-family: inherit;
+    font-weight: 700;
+  }
 }

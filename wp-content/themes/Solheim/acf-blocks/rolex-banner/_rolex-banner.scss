@@ -1,3 +1,17 @@
 .rolex-banner {
-  // TBD
+  width: 100%;
+  background-color: $green;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+
+  &__text {
+    margin: 0;
+    font-size: rem-calc(40);
+    font-family: $heading-font;
+    font-weight: 700;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
 }

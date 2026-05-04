@@ -72,3 +72,69 @@ function my_acf_block_render_callback($block)
     include(get_theme_file_path("/acf-blocks/content-{$slug}.php"));
   }
 }
+
+/**
+ * Whole calendar days from today (site timezone) until the given ACF date.
+ *
+ * @param mixed $acf_date ACF date string (Y-m-d, Ymd, etc.) or DateTimeInterface.
+ * @return int|null Days remaining (0 if today or past), or null if unparseable.
+ */
+function solheim_hero_countdown_days($acf_date)
+{
+  if ($acf_date === '' || $acf_date === null || false === $acf_date) {
+    return null;
+  }
+
+  $tz = wp_timezone();
+  $target = null;
+
+  try {
+    if ($acf_date instanceof DateTimeInterface) {
+      $target = DateTimeImmutable::createFromInterface($acf_date)->setTimezone($tz)->setTime(0, 0, 0);
+    } elseif (is_array($acf_date)) {
+      $y = isset($acf_date['year']) ? (int) $acf_date['year'] : null;
+      $m = isset($acf_date['month']) ? (int) $acf_date['month'] : null;
+      $d = isset($acf_date['day']) ? (int) $acf_date['day'] : null;
+      if ($y && $m && $d) {
+        $target = date_create_immutable(sprintf('%04d-%02d-%02d', $y, $m, $d), $tz);
+        if ($target) {
+          $target = $target->setTime(0, 0, 0);
+        }
+      }
+    } elseif (is_string($acf_date)) {
+      $s = trim($acf_date);
+      if ($s === '') {
+        return null;
+      }
+      if (preg_match('/^(\d{4})(\d{2})(\d{2})$/', $s, $m)) {
+        $target = date_create_immutable("{$m[1]}-{$m[2]}-{$m[3]}", $tz);
+      } elseif (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $s, $m)) {
+        $target = date_create_immutable("{$m[1]}-{$m[2]}-{$m[3]}", $tz);
+      } elseif (preg_match('#^(\d{1,2})/(\d{1,2})/(\d{4})$#', $s, $m)) {
+        $target = date_create_immutable(sprintf('%04d-%02d-%02d', (int) $m[3], (int) $m[2], (int) $m[1]), $tz);
+      }
+      if (! $target) {
+        $target = date_create_immutable($s, $tz);
+      }
+      if ($target) {
+        $target = $target->setTime(0, 0, 0);
+      }
+    } elseif (is_numeric($acf_date)) {
+      $target = (new DateTimeImmutable('@' . (int) $acf_date))->setTimezone($tz)->setTime(0, 0, 0);
+    }
+  } catch (Exception $e) {
+    return null;
+  }
+
+  if (! $target) {
+    return null;
+  }
+
+  $today = new DateTimeImmutable('today', $tz);
+
+  if ($target < $today) {
+    return 0;
+  }
+
+  return (int) $today->diff($target)->days;
+}

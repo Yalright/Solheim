@@ -14,6 +14,10 @@ $break-large: 1024px;
 $break-medium: 768px;
 $break-small: 350px;
 
+// Layout convention (mobile-first):
+// - Write base styles for small → medium (no mq needed): that is the default cascade.
+// - Desktop-only rules go inside @include mq(large-up) { … } (1024px+, $break-large).
+
 @mixin mq($breakpoint) {
   @if $breakpoint == xlarge-down {
     @media only screen and (max-width: #{$break-xlarge}) {

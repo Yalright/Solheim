@@ -1,0 +1,32 @@
+// Reusable button / CTA link styles (class on <a> or <button>)
+
+.btn-navy {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 15px;
+  margin: 0;
+  font-family: $heading-font;
+  font-weight: 700;
+  font-size: rem-calc(30);
+  line-height: 1.1;
+  color: $white;
+  text-align: center;
+  text-decoration: none;
+  background-color: $navy;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  @include transition;
+
+  &:hover,
+  &:focus-visible {
+    color: $white;
+    text-decoration: none;
+    filter: brightness(1.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $blue;
+    outline-offset: 2px;
+  }
+}

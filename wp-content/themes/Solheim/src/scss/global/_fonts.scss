@@ -16,6 +16,15 @@
 
 @font-face {
   font-family: "Zuume";
+  src: url("../fonts/zuume-regular.woff2") format("woff2"),
+    url("../fonts/zuume-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Zuume";
   src: url("../fonts/zuume-bold.woff2") format("woff2"),
     url("../fonts/zuume-bold.woff") format("woff"),
     url("../fonts/zuume-bold.ttf") format("truetype");
