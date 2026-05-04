@@ -53,3 +53,22 @@
     outline-offset: 2px;
   }
 }
+
+.btn-yellow-navy {
+  @extend %btn-cta;
+  color: $navy;
+  background-color: $yellow;
+  border: 0;
+
+  &:hover,
+  &:focus-visible {
+    color: $navy;
+    text-decoration: none;
+    filter: brightness(1.06);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $blue;
+    outline-offset: 2px;
+  }
+}

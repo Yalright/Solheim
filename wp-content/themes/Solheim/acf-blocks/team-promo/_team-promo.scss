@@ -1,3 +1,348 @@
 .team-promo {
-  // TBD
+  width: 100%;
+  --team-promo-bg: #{$blue};
+  --team-promo-panel-bg: #{$blue-300};
+  --team-promo-star: #{$yellow};
+  --team-promo-ripple: url("../images/ripple-blue.svg");
+
+  &--theme-red {
+    --team-promo-bg: #{$red};
+    --team-promo-panel-bg: #{$red-300};
+    --team-promo-star: #{$yellow};
+    --team-promo-ripple: url("../images/ripple-red.svg");
+  }
+
+  &--theme-blue {
+    --team-promo-bg: #{$blue};
+    --team-promo-panel-bg: #{$blue-300};
+    --team-promo-star: #{$yellow};
+    --team-promo-ripple: url("../images/ripple-blue.svg");
+  }
+
+  &__title-bar {
+    background-color: var(--team-promo-bg);
+    padding: rem-calc(40) rem-calc(20);
+  }
+
+  &__title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem-calc(20);
+  }
+
+  &__title-text {
+    font-family: $heading-font;
+    font-size: rem-calc(170);
+    line-height: 0.9;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $white;
+    text-align: center;
+  }
+
+  &__star {
+    width: rem-calc(41);
+    height: rem-calc(39);
+    flex: 0 0 auto;
+    background-color: var(--team-promo-star);
+    -webkit-mask-image: url("../images/icon-star.svg");
+    mask-image: url("../images/icon-star.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__primary {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__primary-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  &__image-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__image {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: rem-calc(320);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  &__content-col {
+    width: 100%;
+    background-color: var(--team-promo-panel-bg);
+  }
+
+  &__content-inner {
+    max-width: rem-calc(350);
+    padding: rem-calc(48) rem-calc(32);
+  }
+
+  &__subtitle {
+    margin: 0 0 rem-calc(20);
+    font-family: $heading-font;
+    font-size: rem-calc(60);
+    line-height: 0.9;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $navy;
+  }
+
+  &__content {
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: 1.5;
+    color: $white;
+
+    strong,
+    b {
+      font-weight: 700;
+    }
+  }
+
+  &__cta {
+    margin-top: rem-calc(24);
+  }
+
+  &__captains {
+    position: relative;
+    width: 100%;
+    padding: rem-calc(32) rem-calc(16) rem-calc(48);
+    background-color: $white;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  &__captains-decor {
+    position: absolute;
+    top: 5%;
+    right: -5%;
+    width: 55%;
+    height: 90%;
+    background-image: var(--team-promo-ripple);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__captains-heading {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 rem-calc(28);
+    font-family: $heading-font;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.05;
+  }
+
+  &__captains-heading-title {
+    display: inline-block;
+    font-family: $heading-font;
+    font-size: rem-calc(50);
+    font-weight: 700;
+    color: var(--team-promo-bg);
+  }
+
+  &__captains-heading-label {
+    display: inline-block;
+    font-family: $heading-font;
+    font-size: rem-calc(50);
+    font-weight: 700;
+    color: $navy;
+  }
+
+  &__captains-panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: rem-calc(420);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  &__captains-primary {
+    position: relative;
+    z-index: 1;
+    align-self: stretch;
+    width: 100%;
+    min-height: rem-calc(280);
+    margin: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+    touch-action: manipulation;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $blue;
+      outline-offset: 4px;
+    }
+  }
+
+  &__captains-thumbs {
+    position: relative;
+    z-index: 3;
+    align-self: stretch;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: rem-calc(8);
+    margin-top: rem-calc(12);
+    padding-bottom: rem-calc(8);
+  }
+
+  &__captains-thumbs--single {
+    .team-promo__thumb--prev,
+    .team-promo__thumb--next {
+      visibility: hidden;
+      width: 0;
+      min-width: 0;
+      max-width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      flex: 0 0 0;
+      border: 0;
+    }
+  }
+
+  &__thumb {
+    flex: 0 0 auto;
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    line-height: 0;
+    transform: scale(0.82);
+    transform-origin: center bottom;
+    transition: transform 0.28s ease;
+
+    img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $blue;
+      outline-offset: 4px;
+    }
+
+    &--active.is-active {
+      transform: scale(1.08);
+      z-index: 2;
+    }
+  }
+
+  @include mq(large-up) {
+    &__main {
+      flex-direction: row;
+      align-items: stretch;
+      min-height: rem-calc(500);
+    }
+
+    &__main--with-captains &__primary {
+      width: 60%;
+    }
+
+    &__main--with-captains &__captains {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: rem-calc(40) rem-calc(24) rem-calc(56);
+    }
+
+    &__main--with-captains &__primary {
+      min-height: 0;
+    }
+
+    &__primary-body {
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    &__image-col {
+      width: 55%;
+    }
+
+    &__content-col {
+      width: 45%;
+      display: flex;
+      align-items: center;
+    }
+
+    &__content-inner {
+      padding: rem-calc(56) rem-calc(32);
+    }
+
+    &__main:not(.team-promo__main--with-captains) &__primary {
+      width: 100%;
+    }
+
+    &__captains-panel {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: center;
+      max-width: none;
+      width: 100%;
+      margin-top: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__captains-primary {
+      min-height: rem-calc(340);
+    }
+  }
 }
