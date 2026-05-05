@@ -1,3 +1,142 @@
 .cards-overlayed {
-  // TBD
+  width: 100%;
+  background-color: $navy;
+  padding-top: rem-calc(30);
+  padding-bottom: rem-calc(30);
+
+  &__stack {
+    position: relative;
+    width: 100%;
+    min-height: rem-calc(560);
+    padding-right: 0;
+    padding-bottom: rem-calc(44);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-height: rem-calc(500);
+    overflow: hidden;
+    border-radius: rem-calc(10);
+    box-shadow: 0 rem-calc(6) rem-calc(16) rgba($black, 0.18);
+    z-index: calc(80 - var(--card-index));
+    transform: translateX(calc(var(--card-index) * 60px));
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  &__card.is-active {
+    cursor: default;
+  }
+
+  &__image-col,
+  &__content-col {
+    width: 100%;
+  }
+
+  &__image-col {
+    @include mq(large-up) {
+      width: 45%;
+    }
+  }
+
+  &__content-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: rem-calc(28) 60px rem-calc(28) rem-calc(26);
+    @include mq(large-up) {
+      width: 55%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    min-height: rem-calc(260);
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $heading-font;
+    font-size: rem-calc(80);
+    line-height: 0.95;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__title-rotated {
+    display: none;
+    pointer-events: none;
+
+    @include mq(large-up) {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transform: rotate(-90deg) translate(calc(100% + 25px), 0%);
+      transform-origin: right bottom;
+      white-space: nowrap;
+      font-family: "Zuume", sans-serif;
+      font-size: 2.25rem;
+      line-height: 1;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      z-index: 1;
+      text-align: left;
+    }
+  }
+
+  &__content {
+    margin-top: rem-calc(16);
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: 1.5;
+    color: $white;
+  }
+
+  &__cta {
+    align-self: flex-start;
+    margin-top: rem-calc(20);
+    border: 1px solid $white;
+    background-color: transparent;
+    font-size: rem-calc(25);
+    color: $white;
+
+    &:hover,
+    &:focus-visible {
+      color: $white;
+      border-color: $white;
+      background-color: rgba($white, 0.12);
+      filter: none;
+    }
+  }
+
+  @include mq(large-up) {
+    &__stack {
+      min-height: rem-calc(650);
+      padding-right: 0;
+      padding-bottom: rem-calc(90);
+    }
+
+    &__card {
+      flex-direction: row;
+      width: 80%;
+      min-height: rem-calc(540);
+      transform: translateX(calc(var(--card-index) * 60px));
+    }
+  }
 }
