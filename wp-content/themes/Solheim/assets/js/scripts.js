@@ -14,6 +14,99 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+window.addEventListener('DOMContentLoaded', function () {
+  if (typeof window.Splide === 'undefined') {
+    return;
+  }
+
+  var sliders = document.querySelectorAll('[data-latest-news-slider]');
+  if (!sliders.length) {
+    return;
+  }
+
+  sliders.forEach(function (sliderEl) {
+    var section = sliderEl.closest('.latest-news');
+    if (!section) {
+      return;
+    }
+
+    var prevBtn = section.querySelector('.latest-news__arrow--prev');
+    var nextBtn = section.querySelector('.latest-news__arrow--next');
+
+    var splide = new window.Splide(sliderEl, {
+      type: 'loop',
+      perPage: 3,
+      perMove: 1,
+      gap: '1rem',
+      arrows: false,
+      pagination: false,
+      drag: true,
+      breakpoints: {
+        1200: {
+          perPage: 2,
+        },
+        767: {
+          perPage: 1,
+        },
+      },
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        splide.go('<');
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        splide.go('>');
+      });
+    }
+
+    splide.mount();
+  });
+});
+
+window.addEventListener('DOMContentLoaded', function () {
+  if (typeof window.Splide === 'undefined') {
+    return;
+  }
+
+  var sliders = document.querySelectorAll('[data-logo-bar-slider]');
+  if (!sliders.length) {
+    return;
+  }
+
+  sliders.forEach(function (sliderEl) {
+    var splide = new window.Splide(sliderEl, {
+      type: 'loop',
+      arrows: false,
+      pagination: false,
+      drag: true,
+      autoplay: true,
+      interval: 2200,
+      pauseOnHover: false,
+      pauseOnFocus: false,
+      speed: 900,
+      perPage: 5,
+      perMove: 1,
+      gap: '0.6rem',
+      breakpoints: {
+        1200: {
+          perPage: 4,
+        },
+        900: {
+          perPage: 3,
+        },
+        600: {
+          perPage: 2,
+        },
+      },
+    });
+
+    splide.mount();
+  });
+});
+
 // Accordion logic removed.
 // Wait until DOM is fully loaded before running accordion logic
 window.addEventListener('DOMContentLoaded', function () {

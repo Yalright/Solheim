@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/article-wysiwyg",
+  "title": "Article - Wysiwyg",
+  "description": "Post article content block with themed background.",
+  "category": "custom-blocks",
+  "icon": "editor-paragraph",
+  "keywords": ["article", "content", "wysiwyg"],
+  "supports": {
+    "mode": true,
+    "html": false,
+    "align": true
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "article-wysiwyg.php"
+  }
+}

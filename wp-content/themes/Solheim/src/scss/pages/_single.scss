@@ -1,4 +1,80 @@
 .post-single-template {
+    &__hero {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 90vh;
+        min-height: 600px;
+
+        @include mq(large-up) {
+            flex-direction: row;
+        }
+    }
+
+    &__hero-left,
+    &__hero-right {
+        width: 100%;
+
+        @include mq(large-up) {
+            width: 50%;
+        }
+    }
+
+    &__hero-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: rem-calc(24);
+        padding: rem-calc(48) rem-calc(32);
+        background-color: $white;
+        text-align: center;
+    }
+
+    &__category-pill {
+        display: inline-block;
+        border: 1px solid $navy;
+        border-radius: 999px;
+        padding: rem-calc(8) rem-calc(18);
+        font-family: $heading-font;
+        font-size: rem-calc(20);
+        line-height: 1;
+        text-transform: uppercase;
+        color: $navy;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $heading-font;
+        font-weight: 700;
+        font-size: rem-calc(75);
+        line-height: rem-calc(60);
+        text-transform: uppercase;
+        color: $blue;
+        text-align: center;
+        max-width: rem-calc(560);
+    }
+
+    &__excerpt {
+        margin: 0;
+        max-width: rem-calc(620);
+        font-family: $body-font;
+        font-size: rem-calc(15);
+        line-height: 1.5;
+        color: $black;
+    }
+
+    &__hero-right {
+        min-height: rem-calc(360);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include mq(large-up) {
+            min-height: auto;
+        }
+    }
+
     .container-content {
         padding:40px;
         .breadcrumbs {

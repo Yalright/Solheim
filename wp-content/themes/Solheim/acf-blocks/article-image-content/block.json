@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/article-image-content",
+  "title": "Article - Image + Content",
+  "description": "Post article block with image and WYSIWYG columns.",
+  "category": "custom-blocks",
+  "icon": "align-pull-left",
+  "keywords": ["article", "image", "content"],
+  "supports": {
+    "mode": true,
+    "html": false,
+    "align": true
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "article-image-content.php"
+  }
+}

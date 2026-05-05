@@ -1,3 +1,165 @@
 .latest-news {
-  // TBD
+  width: 100%;
+  background-color: $white;
+  padding: rem-calc(24) rem-calc(16) rem-calc(28);
+
+  &__layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem-calc(20);
+
+    @include mq(large-up) {
+      grid-template-columns: rem-calc(92) minmax(0, 1fr);
+      align-items: stretch;
+      gap: rem-calc(16);
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    padding:0;
+    background: linear-gradient(
+      to bottom,
+      rgba($white, 1) 0%,
+      rgba($white, 1) 50%,
+      rgba($white, 0) 75%,
+      rgba($white, 0) 100%
+    );
+    font-family: $heading-font;
+    font-size: rem-calc(115);
+    font-weight: 700;
+    line-height: 1;
+    color: $blue;
+    text-transform: uppercase;
+    text-align: left;
+
+    @include mq(large-up) {
+      align-self: center;
+      justify-self: center;
+      transform: rotate(-90deg) translateY(-5px);
+      transform-origin: center;
+      white-space: nowrap;
+      text-align: center;
+      height:150px;
+      display:inline-flex;
+      align-items:flex-start;
+      padding-top:25px;
+    }
+  }
+
+  &__slider-wrap {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+  }
+
+  &__topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: rem-calc(18);
+    margin-bottom: rem-calc(12);
+  }
+
+  &__browse-link {
+    font-family: $heading-font;
+    font-size: rem-calc(18);
+    line-height: 1;
+    color: $navy;
+    text-transform: uppercase;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__arrows {
+    display: inline-flex;
+    gap: rem-calc(10);
+  }
+
+  &__arrow {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: $navy;
+    font-size: rem-calc(22);
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  &__splide {
+    .splide__track {
+      overflow: visible;
+    }
+  }
+
+  &__card {
+    border-radius: rem-calc(10);
+    background: $white;
+    box-shadow: 0 0 rem-calc(8) rgba($black, 0.15);
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+
+  &__card-link {
+    display: flex;
+    flex-direction: column;
+    min-height: rem-calc(370);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__card-title {
+    margin: 0;
+    padding: rem-calc(18);
+    font-family: $heading-font;
+    font-size: rem-calc(32);
+    line-height: 1.05;
+    color: $navy;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+  }
+
+  &__card-media {
+    flex: 1 1 auto;
+    min-height: rem-calc(180);
+    background-color: #d9d9d9;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__card-cta {
+    align-self: center;
+    margin: rem-calc(14) rem-calc(14) rem-calc(16);
+    border: 1px solid $navy;
+    padding: rem-calc(8) rem-calc(18);
+    font-family: $heading-font;
+    font-size: rem-calc(20);
+    line-height: 1;
+    color: $navy;
+    text-transform: uppercase;
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+
+  &__card:hover {
+    background-color: $blue;
+    transform: scale(1.03);
+
+    .latest-news__card-title {
+      color: $white;
+    }
+
+    .latest-news__card-cta {
+      color: $white;
+      border-color: $white;
+    }
+  }
 }

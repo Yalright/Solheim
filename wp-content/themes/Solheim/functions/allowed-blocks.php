@@ -34,6 +34,8 @@ function rt_allowed_block_types($allowed_blocks, $editor_context)
     );
 
     $post_blocks = array(
+        'acf/article-image-content',
+        'acf/article-wysiwyg',
         'acf/wysiwyg',
         'acf/latest-news',
         'core/paragraph',

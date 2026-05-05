@@ -1,0 +1,38 @@
+.article-wysiwyg {
+  padding-top: 75px;
+  padding-bottom: 75px;
+
+  .container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &__content {
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: $body-font;
+    font-size: rem-calc(13);
+    line-height: 150%;
+    color: $white;
+
+    p,
+    li {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+    }
+
+    p + p {
+      padding-top: 15px;
+    }
+
+    span[style*="Zuume"],
+    span[style*="zuume"] {
+      font-family: $heading-font !important;
+      font-size: rem-calc(22) !important;
+      font-weight: 700 !important;
+    }
+  }
+}

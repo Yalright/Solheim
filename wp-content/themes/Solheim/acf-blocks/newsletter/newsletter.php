@@ -11,14 +11,9 @@ $block_name = 'newsletter';
 array_unshift($style_classes, $block_name);
 $style_classes[] = $block_name;
 
-// $heading = get_field('heading');
-// $form_shortcode = get_field('form_shortcode');
-
 $classes = implode(' ', array_filter(array_map('esc_attr', $style_classes)));
 ?>
 
 <section <?php echo $block_id; ?> class="guten-block <?php echo esc_attr($classes); ?>">
-    <div class="container">
-        <?php // Markup TBD ?>
-    </div>
+    <p class="newsletter__text"><?php esc_html_e('NEWSLETTER COMING SOON', 'solheim'); ?></p>
 </section>

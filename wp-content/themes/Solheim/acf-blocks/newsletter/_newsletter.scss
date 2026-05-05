@@ -1,3 +1,16 @@
 .newsletter {
-  // TBD
+  width: 100%;
+  background-color: $yellow;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+
+  &__text {
+    margin: 0;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(50);
+    color: $navy;
+    text-transform: uppercase;
+  }
 }

@@ -1,3 +1,108 @@
 .logo-bar {
-  // TBD
+  --logo-bar-bg: #{$navy};
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+
+  &.has-background.has-blue-background-color {
+    --logo-bar-bg: #{$blue};
+  }
+
+  &.has-background.has-navy-background-color {
+    --logo-bar-bg: #{$navy};
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--logo-bar-bg);
+
+    @include mq(large-up) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__title-col {
+    width: 100%;
+    padding: rem-calc(16) rem-calc(24) rem-calc(10);
+
+    @include mq(large-up) {
+      width: 25%;
+      padding: rem-calc(24);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $heading-font;
+    font-size: rem-calc(30);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__slider-col {
+    position: relative;
+    width: 100%;
+    padding: rem-calc(10) rem-calc(8) rem-calc(14);
+
+    @include mq(large-up) {
+      width: 75%;
+      padding: rem-calc(14) rem-calc(8);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: rem-calc(90);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, var(--logo-bar-bg) 0%, transparent 100%);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, var(--logo-bar-bg) 0%, transparent 100%);
+    }
+  }
+
+  &__splide {
+    .splide__track {
+      overflow: hidden;
+    }
+
+    .splide__slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: rem-calc(56);
+    padding: rem-calc(6) rem-calc(18);
+
+    img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      max-height: 100px;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.9;
+    }
+  }
 }
