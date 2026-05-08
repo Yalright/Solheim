@@ -5,8 +5,7 @@ function custom_menus()
   register_nav_menus(
     array(
       'header-menu' => __('Header Menu'),
-      'header-menu-couples' => __('Header Menu Couples'),
-      'header-menu-vendors' => __('Header Menu Vendors'),
+      'header-nav-2' => __('Header Menu 2'),
       'mobile-nav' => __('Mobile Navigation'),
       'landing-page-nav' => __('Landing Page Navigation'),
       'footer-nav-1' => __('Footer Navigation 1'),

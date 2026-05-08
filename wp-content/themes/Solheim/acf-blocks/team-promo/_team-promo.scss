@@ -3,12 +3,14 @@
   --team-promo-bg: #{$blue};
   --team-promo-panel-bg: #{$blue-300};
   --team-promo-star: #{$yellow};
+  --team-promo-accent: #{$yellow};
   --team-promo-ripple: url("../images/ripple-blue.svg");
 
   &--theme-red {
     --team-promo-bg: #{$red};
     --team-promo-panel-bg: #{$red-300};
     --team-promo-star: #{$yellow};
+    --team-promo-accent: #{$navy};
     --team-promo-ripple: url("../images/ripple-red.svg");
   }
 
@@ -16,6 +18,7 @@
     --team-promo-bg: #{$blue};
     --team-promo-panel-bg: #{$blue-300};
     --team-promo-star: #{$yellow};
+    --team-promo-accent: #{$yellow};
     --team-promo-ripple: url("../images/ripple-blue.svg");
   }
 
@@ -135,6 +138,14 @@
     overflow: hidden;
   }
 
+  &__captains-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   &__captains-decor {
     position: absolute;
     top: 5%;
@@ -188,22 +199,41 @@
     max-width: rem-calc(420);
     margin-left: auto;
     margin-right: auto;
-    padding: 0;
-    background: none;
+    padding: rem-calc(18) rem-calc(12);
+    background: linear-gradient(
+      to bottom,
+      var(--team-promo-bg) 0%,
+      var(--team-promo-bg) 50%,
+      rgba($white, 0) 100%
+    );
     border: 0;
+    border-top: 5px solid var(--team-promo-accent);
+  }
+
+  &__captain-name {
+    width: 100%;
+    margin: 0 0 rem-calc(10);
+    font-family: $heading-font;
+    font-size: rem-calc(28);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $white;
+    text-align: center;
   }
 
   &__captains-primary {
     position: relative;
     z-index: 1;
     align-self: stretch;
-    width: 100%;
+    width: 150%;
     min-height: rem-calc(280);
     margin: 0;
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: contain;
+    left: 50%;
+    transform: translateX(-50%);
     touch-action: manipulation;
     cursor: grab;
 
@@ -267,7 +297,7 @@
       display: block;
       width: auto;
       height: auto;
-      max-width: none;
+      max-width: 90px;
     }
 
     &:focus-visible {
@@ -278,6 +308,10 @@
     &--active.is-active {
       transform: scale(1.08);
       z-index: 2;
+
+      img {
+        max-width: 120px;
+      }
     }
   }
 
@@ -298,6 +332,12 @@
       flex-direction: column;
       align-items: stretch;
       padding: rem-calc(40) rem-calc(24) rem-calc(56);
+    }
+
+    &__captains-inner {
+      max-width: 270px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     &__main--with-captains &__primary {

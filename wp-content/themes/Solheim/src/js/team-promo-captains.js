@@ -38,6 +38,7 @@
     }
 
     var primary = root.querySelector("[data-team-promo-primary]");
+    var nameEl = root.querySelector("[data-team-promo-name]");
     var prevBtn = root.querySelector('[data-team-promo-thumb="prev"]');
     var activeBtn = root.querySelector('[data-team-promo-thumb="active"]');
     var nextBtn = root.querySelector('[data-team-promo-thumb="next"]');
@@ -66,6 +67,9 @@
       fillThumb(activeBtn, slides[idx.active]);
       fillThumb(nextBtn, slides[idx.next]);
       setPrimaryBg(primary, slides[idx.active].primary || "");
+      if (nameEl) {
+        nameEl.textContent = slides[idx.active].name ? String(slides[idx.active].name) : "";
+      }
 
       prevBtn.setAttribute("aria-selected", "false");
       activeBtn.setAttribute("aria-selected", "true");

@@ -22,15 +22,18 @@ window.addEventListener('DOMContentLoaded', function () {
       perPage: 3,
       perMove: 1,
       gap: '1rem',
+      padding: { right: '14%' },
       arrows: false,
       pagination: false,
       drag: true,
       breakpoints: {
         1200: {
           perPage: 2,
+          padding: { right: '12%' },
         },
         767: {
           perPage: 1,
+          padding: { right: 0 },
         },
       },
     });

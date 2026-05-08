@@ -1,64 +1,170 @@
-footer.footer {
-    background-color: $white;
-    padding-top: 100px;
-    padding-bottom: 100px;
+.footer {
+  background-color: $white;
+  color: $black;
+  box-shadow: 0 0 rem-calc(20) rgba($black, 0.2);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: rem-calc(18);
+    padding-top: rem-calc(28);
+    padding-bottom: rem-calc(28);
+
+    @include mq(large-up) {
+      grid-template-columns: rem-calc(170) minmax(rem-calc(520), 1fr) rem-calc(520);
+      gap: rem-calc(24);
+      min-height: rem-calc(220);
+      padding-top: rem-calc(30);
+      padding-bottom: rem-calc(30);
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    text-decoration: none;
+    img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: rem-calc(150);
+    }
+  }
+
+  &__tagline {
+    font-family: $heading-font;
+    font-weight: 400;
+    font-size: rem-calc(34);
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-align: left;
+
+    @include mq(large-up) {
+      font-size: rem-calc(45);
+      text-align: left;
+      white-space: nowrap;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(10);
+
+    @include mq(large-up) {
+      align-items: flex-end;
+      gap: rem-calc(12);
+    }
+  }
+
+  &__meta-top {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(12);
+    width: 100%;
+
+    @include mq(large-up) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: rem-calc(22);
+    }
+  }
+
+  &__social-col {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(8);
+    align-items: flex-start;
+
+    @include mq(large-up) {
+      align-items: flex-end;
+    }
+  }
+
+  &__navs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem-calc(12);
+
+    @include mq(large-up) {
+      grid-template-columns: 1fr 1fr;
+      gap: rem-calc(44);
+    }
+  }
+
+  &__menu,
+  &__social-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu {
+    li {
+      margin: 0 0 rem-calc(10);
+    }
+  }
+
+  &__nav a {
+    color: $black;
+    text-decoration: none;
+    font-family: $body-font;
+    font-size: rem-calc(13);
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+
+  &__social {
+    @include mq(large-up) {
+      margin-left: rem-calc(10);
+    }
+  }
+
+  &__social-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: rem-calc(10);
+
+    @include mq(large-up) {
+      justify-content: flex-end;
+    }
+
+    .footer__social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: $black;
+      text-decoration: none;
+      line-height: 1;
+
+      img {
+        display: block;
+        width: rem-calc(20);
+        height: rem-calc(20);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blue;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &__copyright {
+    font-family: $body-font;
+    font-size: rem-calc(10);
+    line-height: 1;
+    text-transform: uppercase;
     color: $black;
 
-    .footer-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 60px;
+    @include mq(large-up) {
+      text-align: left;
     }
-
-    .footer-col-1 {
-        flex: 0 1 320px;
-    }
-
-    .footer-logo img {
-        display: block;
-        width: auto;
-        height: auto;
-        max-width: 260px;
-    }
-
-    .footer-col-2 {
-        flex: 1 1 auto;
-    }
-
-    .footer-nav-columns {
-        display: flex;
-        gap: 60px;
-        justify-content: flex-end;
-    }
-
-    .footer-menu {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .footer-nav {
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            margin: 0 0 12px;
-        }
-
-        a {
-            color: $black;
-            text-decoration: none;
-            font-family: $body-font;
-            font-size: rem-calc(14);
-            text-transform: uppercase;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
+  }
 }

@@ -1,7 +1,9 @@
 // Reusable button / CTA link styles (class on <a> or <button>)
 
 %btn-cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   padding: 15px;
   margin: 0;

@@ -40,6 +40,7 @@ $captains_slides = array();
 if (have_rows('captains')) {
     while (have_rows('captains')) {
         the_row();
+        $name            = get_sub_field('name');
         $primary_image   = get_sub_field('primary_image');
         $secondary_image = get_sub_field('secondary_image');
 
@@ -48,10 +49,12 @@ if (have_rows('captains')) {
             continue;
         }
 
+        $name = is_string($name) ? trim($name) : '';
         $primary_url = is_array($primary_image) && ! empty($primary_image['url']) ? $primary_image['url'] : '';
         $secondary_alt = is_array($secondary_image) && isset($secondary_image['alt']) ? (string) $secondary_image['alt'] : '';
 
         $captains_slides[] = array(
+            'name'          => $name,
             'primary_url'   => $primary_url,
             'secondary_url' => $secondary_url,
             'secondary_alt' => $secondary_alt,
@@ -64,6 +67,7 @@ $has_captains_slides = count($captains_slides) > 0;
 $captains_slides_json = array();
 foreach ($captains_slides as $row) {
     $captains_slides_json[] = array(
+        'name'      => $row['name'],
         'primary'   => $row['primary_url'],
         'secondary' => $row['secondary_url'],
         'alt'       => $row['secondary_alt'],
@@ -141,79 +145,84 @@ $classes = implode(' ', array_filter(array_map('esc_attr', $style_classes)));
             >
                 <div class="team-promo__captains-decor" aria-hidden="true"></div>
 
-                <?php if ($title !== '') : ?>
-                    <h3 class="team-promo__captains-heading">
-                        <span class="team-promo__captains-heading-title"><?php echo esc_html($title); ?></span><br />
-                        <span class="team-promo__captains-heading-label"><?php esc_html_e('Captains', 'solheim'); ?></span>
-                    </h3>
-                <?php else : ?>
-                    <h3 class="team-promo__captains-heading">
-                        <span class="team-promo__captains-heading-label"><?php esc_html_e('Captains', 'solheim'); ?></span>
-                    </h3>
-                <?php endif; ?>
+                <div class="team-promo__captains-inner">
+                    <?php if ($title !== '') : ?>
+                        <h3 class="team-promo__captains-heading">
+                            <span class="team-promo__captains-heading-title"><?php echo esc_html($title); ?></span><br />
+                            <span class="team-promo__captains-heading-label"><?php esc_html_e('Captains', 'solheim'); ?></span>
+                        </h3>
+                    <?php else : ?>
+                        <h3 class="team-promo__captains-heading">
+                            <span class="team-promo__captains-heading-label"><?php esc_html_e('Captains', 'solheim'); ?></span>
+                        </h3>
+                    <?php endif; ?>
 
-                <div class="team-promo__captains-panel">
-                    <div
-                        class="team-promo__captains-primary"
-                        data-team-promo-primary
-                        <?php if ($captains_slides[0]['primary_url'] !== '') : ?>
-                            style="background-image:url(<?php echo esc_url($captains_slides[0]['primary_url']); ?>);"
-                        <?php endif; ?>
-                    ></div>
+                    <div class="team-promo__captains-panel">
+                        <div class="team-promo__captain-name" data-team-promo-name>
+                            <?php echo esc_html($captains_slides[0]['name']); ?>
+                        </div>
+                        <div
+                            class="team-promo__captains-primary"
+                            data-team-promo-primary
+                            <?php if ($captains_slides[0]['primary_url'] !== '') : ?>
+                                style="background-image:url(<?php echo esc_url($captains_slides[0]['primary_url']); ?>);"
+                            <?php endif; ?>
+                        ></div>
 
-                    <div
-                        class="team-promo__captains-thumbs<?php echo $captains_n < 2 ? ' team-promo__captains-thumbs--single' : ''; ?>"
-                        role="tablist"
-                        aria-label="<?php esc_attr_e('Team captains', 'solheim'); ?>"
-                    >
-                        <button
-                            type="button"
-                            class="team-promo__thumb team-promo__thumb--prev"
-                            data-team-promo-thumb="prev"
-                            role="tab"
-                            tabindex="<?php echo $captains_n > 1 ? '0' : '-1'; ?>"
-                            aria-selected="false"
-                            aria-label="<?php esc_attr_e('Previous captain', 'solheim'); ?>"
+                        <div
+                            class="team-promo__captains-thumbs<?php echo $captains_n < 2 ? ' team-promo__captains-thumbs--single' : ''; ?>"
+                            role="tablist"
+                            aria-label="<?php esc_attr_e('Team captains', 'solheim'); ?>"
                         >
-                            <img
-                                src="<?php echo esc_url($captains_slides[ $captains_idx_pre ]['secondary_url']); ?>"
-                                alt="<?php echo esc_attr($captains_slides[ $captains_idx_pre ]['secondary_alt']); ?>"
-                                loading="eager"
-                                decoding="async"
-                            />
-                        </button>
-                        <button
-                            type="button"
-                            class="team-promo__thumb team-promo__thumb--active is-active"
-                            data-team-promo-thumb="active"
-                            role="tab"
-                            tabindex="0"
-                            aria-selected="true"
-                            aria-label="<?php esc_attr_e('Current captain', 'solheim'); ?>"
-                        >
-                            <img
-                                src="<?php echo esc_url($captains_slides[ $captains_idx_cur ]['secondary_url']); ?>"
-                                alt="<?php echo esc_attr($captains_slides[ $captains_idx_cur ]['secondary_alt']); ?>"
-                                loading="eager"
-                                decoding="async"
-                            />
-                        </button>
-                        <button
-                            type="button"
-                            class="team-promo__thumb team-promo__thumb--next"
-                            data-team-promo-thumb="next"
-                            role="tab"
-                            tabindex="<?php echo $captains_n > 1 ? '0' : '-1'; ?>"
-                            aria-selected="false"
-                            aria-label="<?php esc_attr_e('Next captain', 'solheim'); ?>"
-                        >
-                            <img
-                                src="<?php echo esc_url($captains_slides[ $captains_idx_nex ]['secondary_url']); ?>"
-                                alt="<?php echo esc_attr($captains_slides[ $captains_idx_nex ]['secondary_alt']); ?>"
-                                loading="eager"
-                                decoding="async"
-                            />
-                        </button>
+                            <button
+                                type="button"
+                                class="team-promo__thumb team-promo__thumb--prev"
+                                data-team-promo-thumb="prev"
+                                role="tab"
+                                tabindex="<?php echo $captains_n > 1 ? '0' : '-1'; ?>"
+                                aria-selected="false"
+                                aria-label="<?php esc_attr_e('Previous captain', 'solheim'); ?>"
+                            >
+                                <img
+                                    src="<?php echo esc_url($captains_slides[ $captains_idx_pre ]['secondary_url']); ?>"
+                                    alt="<?php echo esc_attr($captains_slides[ $captains_idx_pre ]['secondary_alt']); ?>"
+                                    loading="eager"
+                                    decoding="async"
+                                />
+                            </button>
+                            <button
+                                type="button"
+                                class="team-promo__thumb team-promo__thumb--active is-active"
+                                data-team-promo-thumb="active"
+                                role="tab"
+                                tabindex="0"
+                                aria-selected="true"
+                                aria-label="<?php esc_attr_e('Current captain', 'solheim'); ?>"
+                            >
+                                <img
+                                    src="<?php echo esc_url($captains_slides[ $captains_idx_cur ]['secondary_url']); ?>"
+                                    alt="<?php echo esc_attr($captains_slides[ $captains_idx_cur ]['secondary_alt']); ?>"
+                                    loading="eager"
+                                    decoding="async"
+                                />
+                            </button>
+                            <button
+                                type="button"
+                                class="team-promo__thumb team-promo__thumb--next"
+                                data-team-promo-thumb="next"
+                                role="tab"
+                                tabindex="<?php echo $captains_n > 1 ? '0' : '-1'; ?>"
+                                aria-selected="false"
+                                aria-label="<?php esc_attr_e('Next captain', 'solheim'); ?>"
+                            >
+                                <img
+                                    src="<?php echo esc_url($captains_slides[ $captains_idx_nex ]['secondary_url']); ?>"
+                                    alt="<?php echo esc_attr($captains_slides[ $captains_idx_nex ]['secondary_alt']); ?>"
+                                    loading="eager"
+                                    decoding="async"
+                                />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
