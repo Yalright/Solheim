@@ -1,3 +1,162 @@
 .hero-team {
-  // TBD
+  width: 100%;
+  background-color: $white;
+  border-bottom: rem-calc(20) solid $red;
+  display: flex;
+  flex-direction: column;
+  min-height: rem-calc(600);
+  min-height: unquote("max(#{rem-calc(600)}, 100vh)");
+  min-height: unquote("max(#{rem-calc(600)}, 100dvh)");
+
+  &--has-image {
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: auto 100%;
+  }
+
+  &__image-desc {
+    @include visually-hidden;
+  }
+
+  &--theme-red {
+    border-bottom-color: $red;
+
+    .hero-team__title-text {
+      color: $red;
+    }
+
+    .hero-team__star {
+      background-color: $red;
+    }
+  }
+
+  &--theme-navy {
+    border-bottom-color: $navy;
+
+    .hero-team__title-text {
+      color: $navy;
+    }
+
+    .hero-team__star {
+      background-color: $navy;
+    }
+  }
+
+  &__grid {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    // Text column fills space first; image sizes to content — text stays vertically centered in section.
+    grid-template-rows: 1fr auto;
+    align-items: stretch;
+    min-height: 0;
+    width: 100%;
+
+    @include mq(large-up) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    min-height: 0;
+    text-align: center;
+    padding: rem-calc(40) rem-calc(24);
+    box-sizing: border-box;
+    gap: rem-calc(24);
+
+    @include mq(large-up) {
+      padding: rem-calc(48) rem-calc(40);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: rem-calc(12) rem-calc(16);
+
+    @include mq(large-up) {
+      gap: rem-calc(16) rem-calc(20);
+    }
+  }
+
+  &__title-text {
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(64);
+    line-height: 0.95;
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    @include mq(medium-up) {
+      font-size: rem-calc(96);
+    }
+
+    @include mq(large-up) {
+      font-size: rem-calc(120);
+    }
+  }
+
+  &__star {
+    flex: 0 0 auto;
+    width: rem-calc(28);
+    height: rem-calc(26);
+    -webkit-mask-image: url("../images/icon-star.svg");
+    mask-image: url("../images/icon-star.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+
+    @include mq(large-up) {
+      width: rem-calc(41);
+      height: rem-calc(39);
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    max-width: rem-calc(520);
+    font-family: $body-font;
+    font-weight: 400;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $navy;
+
+    @include mq(large-up) {
+      font-size: rem-calc(16);
+      line-height: rem-calc(24);
+    }
+  }
+
+  &__cta {
+    margin-top: rem-calc(8);
+  }
+
+  &__aside {
+    width: 100%;
+    min-height: rem-calc(280);
+    pointer-events: none;
+
+    @include mq(large-up) {
+      align-self: stretch;
+      height: 100%;
+      min-height: 0;
+    }
+  }
 }

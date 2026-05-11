@@ -46,15 +46,19 @@
 
   &--theme-red {
     .meet-the-team__title-lead {
-      color: $red;
+      color: $navy;
     }
 
     .meet-the-team__title-accent {
-      color: $red-300;
+      color: $red;
+    }
+
+    .meet-the-team__member-photo {
+      background-color: #ffedf3;
     }
 
     .meet-the-team__member-meta {
-      background-color: $red-300;
+      background-color: $red;
     }
   }
 
