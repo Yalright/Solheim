@@ -24,6 +24,91 @@
     }
   }
 
+  &--style-2 {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    .image-content__layout {
+      gap: rem-calc(80);
+    }
+
+    .image-content__inner {
+      max-width: rem-calc(480);
+    }
+
+    .image-content__content-col {
+      flex: 0 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+      justify-content: flex-end;
+      padding-top: rem-calc(48);
+      padding-bottom: rem-calc(48);
+      padding-left: rem-calc(16);
+      padding-right: rem-calc(16);
+
+      @include mq(large-up) {
+        width: auto;
+        flex: 2 1 0;
+        min-width: 0;
+        padding-top: rem-calc(64);
+        padding-bottom: rem-calc(64);
+      }
+    }
+
+    .image-content__image-col {
+      @include mq(large-up) {
+        flex: 3 1 0;
+        min-width: 0;
+      }
+    }
+
+    &.image-content--img-right {
+      .image-content__content-col {
+        @include mq(large-up) {
+          padding-left: rem-calc(24);
+          padding-right: 0;
+        }
+      }
+    }
+
+    &.image-content--img-left {
+      .image-content__content-col {
+        @include mq(large-up) {
+          padding-right: rem-calc(24);
+          padding-left: 0;
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    &.blue,
+    &.has-blue-background-color {
+      .image-content__title,
+      .image-content__subtitle {
+        color: $white;
+      }
+
+      .image-content__content,
+      .image-content__content p,
+      .image-content__content li,
+      .image-content__content span,
+      .image-content__content a,
+      .image-content__content h1,
+      .image-content__content h2,
+      .image-content__content h3,
+      .image-content__content h4 {
+        color: $white !important;
+      }
+
+      .image-content__content span[style*="Zuume"],
+      .image-content__content span[style*="zuume"] {
+        color: $white !important;
+      }
+    }
+  }
+
   &--img-right {
     .image-content__content-col {
       order: 1;
@@ -75,6 +160,28 @@
     @include mq(large-up) {
       width: 100%;
     }
+  }
+
+  &__title {
+    margin: 0 0 rem-calc(8);
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(60);
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  &__subtitle {
+    margin: 0 0 rem-calc(16);
+    font-family: $heading-font;
+    font-weight: 400;
+    font-size: rem-calc(30);
+    line-height: 1.1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: inherit;
   }
 
   &__content {

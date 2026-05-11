@@ -8,7 +8,14 @@ function site_scripts()
 	// wp_enqueue_script('init-js', get_template_directory_uri() . '/assets/js/init.js', array('jquery'), '1.0', false);
 	wp_enqueue_script('slick-js', '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js', array('jquery'), '1.8.1', true);
 	wp_enqueue_script('splide-js', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js', array(), '4.1.4', true);
-	wp_enqueue_script('site-js', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery', 'slick-js', 'splide-js'), filemtime(get_template_directory() . '/assets/js/scripts.js'), true);
+	wp_enqueue_script(
+		'splide-autoscroll-js',
+		'https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js',
+		array('splide-js'),
+		'0.5.3',
+		true
+	);
+	wp_enqueue_script('site-js', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery', 'slick-js', 'splide-js', 'splide-autoscroll-js'), filemtime(get_template_directory() . '/assets/js/scripts.js'), true);
 	// wp_enqueue_script('jqueryui-js', 'https://code.jquery.com/ui/1.13.0/jquery-ui.min.js', array('jquery'), true);
 
 	// Register main stylesheet

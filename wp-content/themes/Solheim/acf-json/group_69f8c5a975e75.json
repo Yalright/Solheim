@@ -3,6 +3,32 @@
     "title": "CTA Ticker",
     "fields": [
         {
+            "key": "field_6a01aeb221bca",
+            "label": "Theme",
+            "name": "theme",
+            "aria-label": "",
+            "type": "editor_palette",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "yellow",
+            "allowed_colors": [
+                "yellow",
+                "red",
+                "light-red",
+                "light-blue",
+                "navy"
+            ],
+            "exclude_colors": "",
+            "return_format": "background",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_69f8c5aa79e69",
             "label": "CTAs",
             "name": "ctas",
@@ -92,5 +118,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1777911504
+    "modified": 1778495418
 }

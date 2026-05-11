@@ -39,6 +39,54 @@
 })();
 
 window.addEventListener('DOMContentLoaded', function () {
+  if (typeof window.Splide === 'undefined') {
+    return;
+  }
+
+  var sliders = document.querySelectorAll('[data-cta-ticker]');
+  if (!sliders.length) {
+    return;
+  }
+
+  var AutoScroll =
+    window.splide &&
+    window.splide.Extensions &&
+    window.splide.Extensions.AutoScroll;
+
+  var prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  sliders.forEach(function (sliderEl) {
+    var useAutoScroll = AutoScroll && !prefersReducedMotion;
+
+    var splide = new window.Splide(sliderEl, {
+      type: 'loop',
+      drag: prefersReducedMotion,
+      arrows: false,
+      pagination: false,
+      autoWidth: true,
+      gap: '3rem',
+      focus: 'center',
+      speed: 400,
+      easing: 'linear',
+      pauseOnHover: true,
+      pauseOnFocus: true,
+      autoScroll: useAutoScroll
+        ? {
+            speed: 0.65,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            rewind: false,
+          }
+        : false,
+    });
+
+    splide.mount(useAutoScroll ? { AutoScroll: AutoScroll } : {});
+  });
+});
+
+window.addEventListener('DOMContentLoaded', function () {
     var toggle = document.querySelector('.site-header__menu-toggle');
     var offcanvas = document.getElementById('site-header-offcanvas');
 
@@ -431,6 +479,54 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+window.addEventListener('DOMContentLoaded', function () {
+  if (typeof window.Splide === 'undefined') {
+    return;
+  }
+
+  var sliders = document.querySelectorAll('[data-cta-ticker]');
+  if (!sliders.length) {
+    return;
+  }
+
+  var AutoScroll =
+    window.splide &&
+    window.splide.Extensions &&
+    window.splide.Extensions.AutoScroll;
+
+  var prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  sliders.forEach(function (sliderEl) {
+    var useAutoScroll = AutoScroll && !prefersReducedMotion;
+
+    var splide = new window.Splide(sliderEl, {
+      type: 'loop',
+      drag: prefersReducedMotion,
+      arrows: false,
+      pagination: false,
+      autoWidth: true,
+      gap: '3rem',
+      focus: 'center',
+      speed: 400,
+      easing: 'linear',
+      pauseOnHover: true,
+      pauseOnFocus: true,
+      autoScroll: useAutoScroll
+        ? {
+            speed: 0.65,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            rewind: false,
+          }
+        : false,
+    });
+
+    splide.mount(useAutoScroll ? { AutoScroll: AutoScroll } : {});
+  });
+});
+
 // Accordion logic removed.
 // Wait until DOM is fully loaded before running accordion logic
 window.addEventListener('DOMContentLoaded', function () {
@@ -693,49 +789,3 @@ document.addEventListener('DOMContentLoaded', function () {
       .forEach(initCaptains);
   });
 })();
-
-window.addEventListener("DOMContentLoaded", function () {
-  var roots = document.querySelectorAll("[data-links-cards]");
-  if (!roots.length) {
-    return;
-  }
-
-  roots.forEach(function (root) {
-    var tabs = root.querySelectorAll("[data-links-cards-tab]");
-    var panels = root.querySelectorAll("[data-links-cards-panel]");
-    if (!tabs.length || !panels.length) {
-      return;
-    }
-
-    function activate(index) {
-      var i = parseInt(String(index), 10);
-      if (isNaN(i)) {
-        return;
-      }
-
-      tabs.forEach(function (tab, j) {
-        var on = j === i;
-        tab.classList.toggle("is-active", on);
-        tab.setAttribute("aria-selected", on ? "true" : "false");
-        tab.setAttribute("tabindex", on ? "0" : "-1");
-      });
-
-      panels.forEach(function (panel, j) {
-        var on = j === i;
-        panel.classList.toggle("is-active", on);
-        if (on) {
-          panel.removeAttribute("hidden");
-        } else {
-          panel.setAttribute("hidden", "hidden");
-        }
-      });
-    }
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        var idx = tab.getAttribute("data-index");
-        activate(idx);
-      });
-    });
-  });
-});

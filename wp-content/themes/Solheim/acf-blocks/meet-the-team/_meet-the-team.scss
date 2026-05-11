@@ -1,3 +1,237 @@
+// Meet The Team — IMG-Solheim
+// https://www.figma.com/design/Pv14sPYOTVtCVbSvsbe1cI/IMG-Solheim?node-id=296-1041
+// Typography aligned to same file tokens (Zuume / Gotham): section headings ~80/85 like
+// links column (52:1020–22), intro 14/22 like body (52:1017), meta name ~25 Zuume (CTA scale 52:1026).
+
 .meet-the-team {
-  // TBD
+  width: 100%;
+  padding-top: rem-calc(60);
+  padding-bottom: rem-calc(60);
+  background-color: $white;
+  box-sizing: border-box;
+
+  @each $color in $palette-colors {
+    $slug: nth($color, 1);
+    $val: nth($color, 2);
+
+    &--theme-#{$slug} {
+      .meet-the-team__title-lead,
+      .meet-the-team__title-accent {
+        color: $val;
+      }
+
+      .meet-the-team__member-meta {
+        background-color: $val;
+      }
+    }
+  }
+
+  &--theme-navy {
+    .meet-the-team__title-lead {
+      color: $navy;
+    }
+
+    .meet-the-team__title-accent {
+      color: $blue;
+    }
+
+    .meet-the-team__member-photo {
+      background-color: #e7f2fd;
+    }
+
+    .meet-the-team__member-meta {
+      background-color: $blue;
+    }
+  }
+
+  &--theme-red {
+    .meet-the-team__title-lead {
+      color: $red;
+    }
+
+    .meet-the-team__title-accent {
+      color: $red-300;
+    }
+
+    .meet-the-team__member-meta {
+      background-color: $red-300;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: rem-calc(24);
+    margin-bottom: rem-calc(40);
+
+    @include mq(large-up) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: rem-calc(24) rem-calc(32);
+      margin-bottom: rem-calc(48);
+    }
+
+    &--title-only {
+      @include mq(large-up) {
+        .meet-the-team__title {
+          flex: 1 1 auto;
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+
+    &--intro-only {
+      @include mq(large-up) {
+        .meet-the-team__intro {
+          flex: 1 1 auto;
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    flex: 0 1 auto;
+    min-width: 0;
+    width: 100%;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(40);
+    line-height: 1.05;
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    @include mq(medium-up) {
+      font-size: rem-calc(56);
+    }
+
+    @include mq(large-up) {
+      flex: 0 0 33%;
+      width: 33%;
+      max-width: 33%;
+      box-sizing: border-box;
+      font-size: rem-calc(80);
+      line-height: rem-calc(85);
+    }
+  }
+
+  &__title-lead,
+  &__title-accent {
+    font-family: inherit;
+    font-weight: inherit;
+  }
+
+  &__title-lead + &__title-accent::before {
+    content: " ";
+  }
+
+  &__intro {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    @include mq(large-up) {
+      flex: 1 1 0;
+      width: auto;
+      max-width: none;
+    }
+  }
+
+  &__intro-inner {
+    width: 100%;
+    max-width: rem-calc(600);
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+    color: $navy;
+    box-sizing: border-box;
+
+    p {
+      margin: 0;
+    }
+
+    p + p {
+      margin-top: rem-calc(12);
+    }
+
+    strong,
+    b {
+      font-family: $body-font;
+      font-weight: 700;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: rem-calc(24);
+
+    @include mq(medium-up) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem-calc(28);
+    }
+
+    @include mq(large-up) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: rem-calc(32);
+    }
+  }
+
+  &__member {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__member-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background-color: rgba($navy, 0.06);
+  }
+
+  &__member-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__member-meta {
+    padding: rem-calc(16) rem-calc(18);
+    color: $white;
+    text-align: center;
+  }
+
+  &__member-name {
+    margin: 0 0 rem-calc(6);
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(35);
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__member-role {
+    margin: 0;
+    font-family: $heading-font;
+    font-weight: 400;
+    font-size: rem-calc(25);
+    line-height: 1.3;
+    text-align: center;
+  }
 }

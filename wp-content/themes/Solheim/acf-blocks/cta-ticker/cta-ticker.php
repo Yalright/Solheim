@@ -11,6 +11,19 @@ $block_name = 'cta-ticker';
 array_unshift($style_classes, $block_name);
 $style_classes[] = $block_name;
 
+$theme = get_field('theme');
+if (is_string($theme) && trim($theme) !== '') {
+    $theme_parts = preg_split('/\s+/', trim($theme));
+    if (is_array($theme_parts)) {
+        foreach ($theme_parts as $part) {
+            $part = sanitize_html_class($part);
+            if ($part !== '') {
+                $style_classes[] = $part;
+            }
+        }
+    }
+}
+
 $rows = get_field('ctas');
 $items = array();
 
@@ -32,62 +45,42 @@ if ( ! empty($rows) && is_array($rows)) {
     }
 }
 
-if (count($items) === 1) {
-    $single = $items[0];
-    $items  = array(
-        array(
-            'text' => $single['text'],
-            'url'  => $single['url'],
-        ),
-        array(
-            'text' => $single['text'],
-            'url'  => $single['url'],
-        ),
-        array(
-            'text' => $single['text'],
-            'url'  => $single['url'],
-        ),
-    );
-}
-
 $classes = implode(' ', array_filter(array_map('esc_attr', $style_classes)));
 
 if (empty($items)) {
     return;
 }
 
-/**
- * @param array<int, array{text: string, url: string}> $ticker_items
- */
-$render_sequence = static function ($ticker_items) {
-    $chunks = array();
-    foreach ($ticker_items as $item) {
-        ob_start();
-        if ($item['url'] !== '') {
-            printf(
-                '<a class="cta-ticker__link" href="%s">%s</a>',
-                esc_url($item['url']),
-                esc_html($item['text'])
-            );
-        } else {
-            printf('<span class="cta-ticker__text">%s</span>', esc_html($item['text']));
+// Repeat the sequence so Splide loop + autoWidth always has enough slides to clone (avoids “end” of track).
+$ticker_items = $items;
+$base_count     = count($ticker_items);
+if ($base_count > 0) {
+    while (count($ticker_items) < 8) {
+        foreach ($items as $row) {
+            $ticker_items[] = $row;
         }
-        $chunks[] = ob_get_clean();
     }
-    $sep = '<span class="cta-ticker__bullet" aria-hidden="true">•</span>';
-    echo implode($sep, $chunks);
-    echo $sep;
-};
+}
 ?>
 
 <section <?php echo $block_id; ?> class="guten-block <?php echo esc_attr($classes); ?>">
     <div class="cta-ticker__viewport">
-        <div class="cta-ticker__marquee">
-            <div class="cta-ticker__group">
-                <?php $render_sequence($items); ?>
-            </div>
-            <div class="cta-ticker__group" aria-hidden="true">
-                <?php $render_sequence($items); ?>
+        <div class="splide cta-ticker__splide" data-cta-ticker>
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <?php foreach ($ticker_items as $item) : ?>
+                        <li class="splide__slide cta-ticker__slide">
+                            <?php if ($item['url'] !== '') : ?>
+                                <a class="cta-ticker__link" href="<?php echo esc_url($item['url']); ?>">
+                                    <?php echo esc_html($item['text']); ?>
+                                </a>
+                            <?php else : ?>
+                                <span class="cta-ticker__text"><?php echo esc_html($item['text']); ?></span>
+                            <?php endif; ?>
+                            <span class="cta-ticker__bullet" aria-hidden="true">•</span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </div>

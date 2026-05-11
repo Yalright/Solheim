@@ -11,11 +11,23 @@ $block_name = 'image-content';
 array_unshift($style_classes, $block_name);
 $style_classes[] = $block_name;
 
+$style = get_field('style');
+$style = is_string($style) ? strtolower(trim($style)) : 'style-1';
+if ($style !== 'style-2') {
+    $style = 'style-1';
+}
+$style_classes[] = 'image-content--' . sanitize_html_class($style);
+
 $theme          = get_field('theme');
 $image          = get_field('image');
 $content        = get_field('content');
 $cta            = get_field('cta');
 $image_position = get_field('image_position');
+
+$title    = $style === 'style-2' ? get_field('title') : '';
+$subtitle = $style === 'style-2' ? get_field('subtitle') : '';
+$title    = is_string($title) ? trim($title) : '';
+$subtitle = is_string($subtitle) ? trim($subtitle) : '';
 
 if (is_string($theme) && trim($theme) !== '') {
     $theme_parts = preg_split('/\s+/', trim($theme));
@@ -47,6 +59,15 @@ $classes = implode(' ', array_filter(array_map('esc_attr', $style_classes)));
     <div class="image-content__layout">
         <div class="image-content__content-col">
             <div class="image-content__inner">
+                <?php if ($style === 'style-2') : ?>
+                    <?php if ($title !== '') : ?>
+                        <h3 class="image-content__title"><?php echo esc_html($title); ?></h3>
+                    <?php endif; ?>
+                    <?php if ($subtitle !== '') : ?>
+                        <p class="image-content__subtitle"><?php echo esc_html($subtitle); ?></p>
+                    <?php endif; ?>
+                <?php endif; ?>
+
                 <?php if (is_string($content) && trim($content) !== '') : ?>
                     <div class="image-content__content">
                         <?php echo wp_kses_post($content); ?>

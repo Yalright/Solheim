@@ -8,6 +8,10 @@
     --logo-bar-bg: #{$blue};
   }
 
+  &.has-background.has-light-blue-background-color {
+    --logo-bar-bg: #{$blue-300};
+  }
+
   &.has-background.has-navy-background-color {
     --logo-bar-bg: #{$navy};
   }

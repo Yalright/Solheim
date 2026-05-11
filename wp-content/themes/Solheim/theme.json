@@ -25,6 +25,11 @@
             "color": "#1452DE"
           },
           {
+            "name": "Light blue",
+            "slug": "light-blue",
+            "color": "#629CEF"
+          },
+          {
             "name": "Yellow",
             "slug": "yellow",
             "color": "#ffcc00"
