@@ -74,3 +74,22 @@
     outline-offset: 2px;
   }
 }
+
+.btn-blue-white {
+  @extend %btn-cta;
+  color: $white;
+  background-color: $blue;
+  border: 0;
+
+  &:hover,
+  &:focus-visible {
+    color: $white;
+    text-decoration: none;
+    filter: brightness(1.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $navy;
+    outline-offset: 2px;
+  }
+}

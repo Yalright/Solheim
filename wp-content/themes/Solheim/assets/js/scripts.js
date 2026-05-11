@@ -237,6 +237,59 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 window.addEventListener('DOMContentLoaded', function () {
+  var frames = document.querySelectorAll('[data-hero-video-frame]');
+  if (!frames.length) {
+    return;
+  }
+
+  frames.forEach(function (frame) {
+    var playBtn = frame.querySelector('[data-hero-video-play]');
+    var video = frame.querySelector('.hero-video__video');
+    if (!playBtn || !video) {
+      return;
+    }
+
+    playBtn.addEventListener('click', function () {
+      frame.classList.add('is-playing');
+      video.removeAttribute('hidden');
+      video.muted = false;
+      var playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          video.setAttribute('controls', 'controls');
+        });
+      }
+    });
+  });
+});
+
+window.addEventListener('DOMContentLoaded', function () {
+  if (typeof window.Splide === 'undefined') {
+    return;
+  }
+
+  var sliders = document.querySelectorAll('[data-image-slider]');
+  if (!sliders.length) {
+    return;
+  }
+
+  sliders.forEach(function (sliderEl) {
+    var splide = new window.Splide(sliderEl, {
+      type: 'loop',
+      arrows: false,
+      pagination: false,
+      drag: true,
+      autoWidth: true,
+      focus: 0,
+      gap: '20px',
+    });
+
+    splide.mount();
+  });
+});
+
+
+window.addEventListener('DOMContentLoaded', function () {
   if (typeof window.Splide === 'undefined') {
     return;
   }
@@ -288,6 +341,52 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     splide.mount();
+  });
+});
+
+window.addEventListener('DOMContentLoaded', function () {
+  var roots = document.querySelectorAll('[data-links-cards]');
+  if (!roots.length) {
+    return;
+  }
+
+  roots.forEach(function (root) {
+    var tabs = root.querySelectorAll('[data-links-cards-tab]');
+    var panels = root.querySelectorAll('[data-links-cards-panel]');
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+
+    function activate(index) {
+      var i = parseInt(String(index), 10);
+      if (isNaN(i)) {
+        return;
+      }
+
+      tabs.forEach(function (tab, j) {
+        var on = j === i;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.setAttribute('tabindex', on ? '0' : '-1');
+      });
+
+      panels.forEach(function (panel, j) {
+        var on = j === i;
+        panel.classList.toggle('is-active', on);
+        if (on) {
+          panel.removeAttribute('hidden');
+        } else {
+          panel.setAttribute('hidden', 'hidden');
+        }
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var idx = tab.getAttribute('data-index');
+        activate(idx);
+      });
+    });
   });
 });
 
@@ -594,3 +693,49 @@ document.addEventListener('DOMContentLoaded', function () {
       .forEach(initCaptains);
   });
 })();
+
+window.addEventListener("DOMContentLoaded", function () {
+  var roots = document.querySelectorAll("[data-links-cards]");
+  if (!roots.length) {
+    return;
+  }
+
+  roots.forEach(function (root) {
+    var tabs = root.querySelectorAll("[data-links-cards-tab]");
+    var panels = root.querySelectorAll("[data-links-cards-panel]");
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+
+    function activate(index) {
+      var i = parseInt(String(index), 10);
+      if (isNaN(i)) {
+        return;
+      }
+
+      tabs.forEach(function (tab, j) {
+        var on = j === i;
+        tab.classList.toggle("is-active", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+        tab.setAttribute("tabindex", on ? "0" : "-1");
+      });
+
+      panels.forEach(function (panel, j) {
+        var on = j === i;
+        panel.classList.toggle("is-active", on);
+        if (on) {
+          panel.removeAttribute("hidden");
+        } else {
+          panel.setAttribute("hidden", "hidden");
+        }
+      });
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var idx = tab.getAttribute("data-index");
+        activate(idx);
+      });
+    });
+  });
+});

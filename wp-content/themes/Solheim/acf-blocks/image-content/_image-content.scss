@@ -1,3 +1,114 @@
 .image-content {
-  // TBD
+  width: 100%;
+  padding-top: rem-calc(48);
+  padding-bottom: rem-calc(48);
+  padding-left: rem-calc(16);
+  padding-right: rem-calc(16);
+
+  @include mq(large-up) {
+    padding-top: rem-calc(64);
+    padding-bottom: rem-calc(64);
+    padding-left: rem-calc(32);
+    padding-right: rem-calc(32);
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(32);
+
+    @include mq(large-up) {
+      flex-direction: row;
+      align-items: stretch;
+      gap: rem-calc(80);
+    }
+  }
+
+  &--img-right {
+    .image-content__content-col {
+      order: 1;
+
+      @include mq(large-up) {
+        justify-content: flex-end;
+      }
+    }
+
+    .image-content__image-col {
+      order: 2;
+    }
+  }
+
+  &--img-left {
+    .image-content__image-col {
+      order: 1;
+    }
+
+    .image-content__content-col {
+      order: 2;
+
+      @include mq(large-up) {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__content-col,
+  &__image-col {
+    width: 100%;
+    min-width: 0;
+
+    @include mq(large-up) {
+      flex: 1 1 0;
+      width: auto;
+    }
+  }
+
+  &__content-col {
+    display: flex;
+  }
+
+  &__inner {
+    width: 100%;
+    max-width: rem-calc(450);
+    text-align: left;
+
+    @include mq(large-up) {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+
+    p + p {
+      padding-top: 15px;
+    }
+
+    span[style*="Zuume"],
+    span[style*="zuume"] {
+      font-family: $heading-font !important;
+      font-size: rem-calc(22) !important;
+      font-weight: 700 !important;
+    }
+  }
+
+  &__cta {
+    margin-top: rem-calc(40);
+  }
+
+  &__image {
+    width: 100%;
+    min-height: rem-calc(280);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    @include mq(large-up) {
+      min-height: rem-calc(380);
+      height: 100%;
+    }
+  }
+
 }

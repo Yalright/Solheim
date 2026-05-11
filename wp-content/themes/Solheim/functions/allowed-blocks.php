@@ -17,6 +17,7 @@ function rt_allowed_block_types($allowed_blocks, $editor_context)
         'acf/image-content',
         'acf/image-slider',
         'acf/latest-news',
+        'acf/links-cards',
         'acf/logo-bar',
         'acf/meet-the-team',
         'acf/newsletter',

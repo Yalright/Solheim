@@ -1,12 +1,18 @@
 .hero-cta {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 90vh;
   min-height: 600px;
   overflow: hidden;
+
+  &--style-2 {
+    align-items: stretch;
+    justify-content: center;
+  }
 
   &__media {
     position: absolute;
@@ -46,6 +52,137 @@
     .hero-cta__cta {
       pointer-events: auto;
     }
+  }
+
+  &__overlay {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    padding: rem-calc(32) rem-calc(24);
+    pointer-events: none;
+
+    @include mq(large-up) {
+      padding: rem-calc(40) rem-calc(32);
+    }
+  }
+
+  &__overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__overlay-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: rem-calc(10);
+    padding-bottom: rem-calc(10);
+    box-sizing: border-box;
+
+    & + & {
+      margin-top: rem-calc(16);
+
+      @include mq(medium-up) {
+        margin-top: rem-calc(24);
+      }
+    }
+  }
+
+  &__overlay-shift {
+    display: inline-block;
+    max-width: 100%;
+    will-change: transform;
+  }
+
+  &__overlay-inner {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: rem-calc(16) rem-calc(24);
+    pointer-events: none;
+
+    a {
+      pointer-events: auto;
+    }
+
+    &--cta-left {
+      .hero-cta__overlay-cta {
+        order: 1;
+      }
+
+      .hero-cta__overlay-text-wrap {
+        order: 2;
+      }
+    }
+  }
+
+  &__overlay-text-wrap {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    color: $white;
+    text-align: center;
+
+    @each $color in $palette-colors {
+      $slug: nth($color, 1);
+      $val: nth($color, 2);
+
+      &.#{$slug} {
+        color: $val;
+      }
+    }
+  }
+
+  &__overlay-text {
+    margin: 0;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(48);
+    line-height: 1.1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+
+    @include mq(medium-up) {
+      font-size: rem-calc(90);
+      line-height: rem-calc(95);
+    }
+
+    @include mq(large-up) {
+      font-size: rem-calc(120);
+      line-height: rem-calc(95);
+    }
+
+    @include mq(xlarge-up) {
+      font-size: rem-calc(170);
+      line-height: rem-calc(95);
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p + p {
+      margin-top: 0.15em;
+    }
+  }
+
+  &__overlay-cta {
+    flex: 0 0 auto;
+    font-size: rem-calc(25);
+    line-height: 1.58;
+    padding: rem-calc(8) rem-calc(20);
+    white-space: nowrap;
   }
 
   @media (prefers-reduced-motion: reduce) {

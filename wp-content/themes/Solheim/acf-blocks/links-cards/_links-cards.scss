@@ -1,0 +1,208 @@
+// Typography + card from Figma (IMG-Solheim, About frame — links + card block ~52:1020–52:1026)
+// https://www.figma.com/design/Pv14sPYOTVtCVbSvsbe1cI/IMG-Solheim?node-id=52-996
+
+.links-cards {
+  width: 100%;
+  padding-top: rem-calc(60);
+  padding-bottom: rem-calc(60);
+  background-color: $white;
+  box-sizing: border-box;
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(40);
+
+    @include mq(large-up) {
+      flex-direction: row;
+      align-items: center;
+      gap: rem-calc(48);
+    }
+  }
+
+  &__nav-col {
+    width: 100%;
+    min-width: 0;
+
+    @include mq(large-up) {
+      flex: 3 1 0;
+      width: auto;
+    }
+  }
+
+  &__panel-col {
+    width: 100%;
+    min-width: 0;
+
+    @include mq(large-up) {
+      flex: 2 1 0;
+      width: auto;
+    }
+  }
+
+  &__heading {
+    margin: 0 0 rem-calc(24);
+    font-family: $heading-font;
+    font-weight: 400;
+    font-size: rem-calc(24);
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: $navy;
+
+    @include mq(medium-up) {
+      font-size: rem-calc(30);
+      line-height: rem-calc(36);
+    }
+  }
+
+  &__tabs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__tab-item + &__tab-item {
+    margin-top: 0;
+  }
+
+  &__tab {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: rem-calc(6) 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(40);
+    line-height: 1.05;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: $blue;
+    opacity: 0.1;
+    @include transition;
+
+    @include mq(medium-up) {
+      font-size: rem-calc(56);
+      padding: rem-calc(8) 0;
+    }
+
+    @include mq(large-up) {
+      font-size: rem-calc(80);
+      line-height: rem-calc(85);
+      padding: rem-calc(10) 0;
+    }
+
+    &:hover:not(.is-active),
+    &:focus-visible:not(.is-active) {
+      opacity: 0.22;
+    }
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $blue;
+      outline-offset: 2px;
+    }
+  }
+
+  &__panel-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    @include mq(large-up) {
+      align-items: flex-end;
+    }
+  }
+
+  &__card {
+    margin: 0;
+    width: 100%;
+    max-width: rem-calc(470);
+    padding: rem-calc(28) rem-calc(24) rem-calc(32);
+    background-color: $blue;
+    border-radius: rem-calc(15);
+    box-shadow: 0 0 rem-calc(10) rem-calc(5) rgba($black, 0.15);
+    box-sizing: border-box;
+
+    @include mq(large-up) {
+      padding: rem-calc(30) rem-calc(30) rem-calc(36);
+    }
+
+    &:not(.is-active) {
+      display: none;
+    }
+  }
+
+  &__card-title {
+    margin: 0 0 rem-calc(20);
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(32);
+    line-height: rem-calc(36);
+    letter-spacing: 0;
+    color: $white;
+
+    @include mq(medium-up) {
+      font-size: rem-calc(40);
+      line-height: rem-calc(36);
+    }
+
+    @include mq(large-up) {
+      font-size: rem-calc(45);
+      line-height: rem-calc(40);
+    }
+  }
+
+  &__card-media {
+    margin: 0 0 rem-calc(24);
+    border-radius: rem-calc(6);
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  &__card-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  &__card-cta {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__cta {
+    @extend %btn-cta;
+    min-width: rem-calc(190);
+    min-height: rem-calc(47);
+    padding: rem-calc(8) rem-calc(20);
+    font-size: rem-calc(25);
+    line-height: 1.58;
+    text-transform: uppercase;
+    color: $white;
+    background-color: $blue;
+    border: 1px solid $white;
+
+    &:hover,
+    &:focus-visible {
+      color: $white;
+      text-decoration: none;
+      filter: brightness(1.06);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $white;
+      outline-offset: 2px;
+    }
+  }
+}

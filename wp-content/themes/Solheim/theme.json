@@ -6,12 +6,12 @@
         "palette": [
           {
             "name": "White",
-            "slug": "white",
+            "slug": "solheim-white",
             "color": "#ffffff"
           },
           {
             "name": "Black",
-            "slug": "black",
+            "slug": "solheim-black",
             "color": "#000000"
           },
           {

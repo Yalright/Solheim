@@ -1,3 +1,75 @@
 .promo-text-content {
-  // TBD
+  position: relative;
+  width: 100%;
+  padding-top: rem-calc(120);
+  padding-bottom: rem-calc(120);
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(28);
+    padding-left: rem-calc(16);
+    padding-right: rem-calc(16);
+
+    @include mq(large-up) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: rem-calc(60);
+      padding-left: rem-calc(80);
+      padding-right: rem-calc(80);
+    }
+  }
+
+  &__col {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+
+    @include mq(large-up) {
+      width: 50%;
+    }
+  }
+
+  &__promo {
+    width: 100%;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(75);
+    line-height: rem-calc(65);
+    color: $white;
+    text-transform: uppercase;
+
+    // WYSIWYG content can include spans with inline font-family; force Zuume for the promo column.
+    &,
+    * {
+      font-family: $heading-font !important;
+      font-weight: 700 !important;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+    color: $white;
+
+    p {
+      margin: 0;
+    }
+
+    p + p {
+      padding-top: rem-calc(12);
+    }
+  }
 }

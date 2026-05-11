@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/links-cards",
+  "title": "Links + Cards",
+  "description": "Tab-style links with a highlighted content card.",
+  "category": "custom-blocks",
+  "icon": "grid-view",
+  "keywords": ["links", "tabs", "cards"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "links-cards.php"
+  }
+}
