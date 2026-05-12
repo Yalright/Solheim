@@ -3,6 +3,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+require get_template_directory() . '/functions/block-helpers.php';
 require get_template_directory() . '/functions/enqueues.php';
 require get_template_directory() . '/functions/shortcodes.php';
 require get_template_directory() . '/functions/menus.php';

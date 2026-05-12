@@ -9,6 +9,7 @@ function rt_allowed_block_types($allowed_blocks, $editor_context)
         'acf/cards-standard',
         'acf/contact-form',
         'acf/cta-ticker',
+        'acf/faqs',
         'acf/hero',
         'acf/hero-cta',
         'acf/hero-team',

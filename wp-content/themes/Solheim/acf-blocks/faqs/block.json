@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/faqs",
+  "title": "FAQs",
+  "description": "Two-column FAQs with categories, sections, and expandable Q&A.",
+  "category": "custom-blocks",
+  "icon": "editor-help",
+  "keywords": ["faq", "accordion", "questions"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "faqs.php"
+  }
+}
