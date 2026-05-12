@@ -4,9 +4,29 @@
   padding-top: rem-calc(120);
   padding-bottom: rem-calc(120);
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: contain;
+
+  // Style 1: ripple SVG background (URL set inline in PHP).
+  &--style-1 {
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+  }
+
+  // Style 2: full-bleed photo (URL set inline when Background Image is set).
+  &--style-2 {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: rem-calc(420);
+
+    @include mq(medium-up) {
+      min-height: rem-calc(520);
+    }
+
+    @include mq(large-up) {
+      min-height: rem-calc(600);
+    }
+  }
 
   &__inner {
     position: relative;
@@ -36,6 +56,35 @@
     }
   }
 
+  &__promo-stack {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem-calc(24);
+
+    @include mq(large-up) {
+      gap: rem-calc(28);
+    }
+  }
+
+  // CTA is output for Style 2 only; keep layout harmless for Style 1 (empty stack gap minimal).
+  &--style-1 &__promo-stack {
+    gap: 0;
+  }
+
+  &--style-2 &__promo-stack {
+    gap: 0;
+  }
+
+  &__cta {
+    flex-shrink: 0;
+  }
+
+  &--style-2 &__cta {
+    margin-top: 25px;
+  }
+
   &__promo {
     width: 100%;
     font-family: $heading-font;
@@ -57,12 +106,15 @@
     }
   }
 
+  &--style-2 &__promo {
+    text-shadow: 0 rem-calc(2) rem-calc(24) rgba($black, 0.35);
+  }
+
   &__content {
     width: 100%;
     font-family: $body-font;
     font-size: rem-calc(14);
     line-height: rem-calc(22);
-    color: $white;
 
     p {
       margin: 0;
@@ -70,6 +122,36 @@
 
     p + p {
       padding-top: rem-calc(12);
+    }
+  }
+
+  &--style-1 &__content {
+    color: $white;
+  }
+
+  &--style-2 &__panel {
+    width: 100%;
+    background-color: $yellow;
+    color: $black;
+    border-radius: 15px;
+    padding: 40px;
+  }
+
+  &--style-2 &__panel &__content {
+    color: $black;
+
+    a {
+      color: $black;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    strong,
+    b {
+      font-weight: 700;
     }
   }
 }

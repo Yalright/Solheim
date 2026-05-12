@@ -81,15 +81,7 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6a01982a5920a",
-                        "operator": "==",
-                        "value": "style-2"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -217,5 +209,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778489472
+    "modified": 1778580170
 }

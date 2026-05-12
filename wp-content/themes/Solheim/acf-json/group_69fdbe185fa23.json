@@ -3,6 +3,30 @@
     "title": "Promo Text + Content",
     "fields": [
         {
+            "key": "field_6a02f11286fa0",
+            "label": "Style",
+            "name": "style",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "style-1": "Style 1",
+                "style-2": "Style 2"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
             "key": "field_69fdbe19862e5",
             "label": "Theme",
             "name": "theme",
@@ -10,7 +34,15 @@
             "type": "editor_palette",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a02f11286fa0",
+                        "operator": "==",
+                        "value": "style-1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -24,6 +56,40 @@
             "exclude_colors": "",
             "return_format": "background",
             "allow_in_bindings": 0
+        },
+        {
+            "key": "field_6a02f4c086fa2",
+            "label": "Background Image",
+            "name": "background_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a02f11286fa0",
+                        "operator": "==",
+                        "value": "style-2"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
         },
         {
             "key": "field_69fdbe33862e6",
@@ -45,6 +111,31 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_6a02f2d786fa1",
+            "label": "CTA",
+            "name": "cta",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a02f11286fa0",
+                        "operator": "==",
+                        "value": "style-2"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
         },
         {
             "key": "field_69fdbe3f862e7",
@@ -89,5 +180,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778237327
+    "modified": 1778578647
 }

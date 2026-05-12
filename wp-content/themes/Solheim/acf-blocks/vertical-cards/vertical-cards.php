@@ -67,6 +67,8 @@ if (empty($cards)) {
     return;
 }
 
+$is_wp_admin = is_admin();
+
 $vc_uid     = 'vertical-cards-' . ( function_exists('wp_unique_id') ? wp_unique_id() : uniqid() );
 $arrow_path = 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z';
 ?>
@@ -76,6 +78,7 @@ $arrow_path = 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.
         <div class="vertical-cards__toolbar">
             <p class="vertical-cards__eyebrow"><?php echo esc_html($title_label); ?></p>
 
+            <?php if (! $is_wp_admin) : ?>
             <div class="vertical-cards__pagination" role="tablist" aria-label="<?php esc_attr_e('Slides', 'solheim'); ?>">
                 <?php foreach ($cards as $idx => $_card) : ?>
                     <button
@@ -112,8 +115,10 @@ $arrow_path = 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.
                     </button>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
 
+        <?php if (! $is_wp_admin) : ?>
         <div
             id="<?php echo esc_attr($vc_uid); ?>"
             class="vertical-cards__slider"
@@ -175,5 +180,50 @@ $arrow_path = 'm15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.
                 </ul>
             </div>
         </div>
+        <?php else : ?>
+        <div class="vertical-cards__admin-preview" id="<?php echo esc_attr($vc_uid); ?>">
+            <?php foreach ($cards as $idx => $card) : ?>
+                <article class="vertical-cards__card vertical-cards__card--admin-preview<?php echo $card['img_url'] === '' ? ' vertical-cards__card--no-media' : ''; ?>">
+                    <div class="vertical-cards__card-body">
+                        <div class="vertical-cards__card-text">
+                            <?php if ($card['title'] !== '' || ! empty($card['details'])) : ?>
+                                <div class="vertical-cards__card-heading">
+                                    <?php if ($card['title'] !== '') : ?>
+                                        <h3 class="vertical-cards__card-title"><?php echo esc_html($card['title']); ?></h3>
+                                    <?php endif; ?>
+
+                                    <?php if ( ! empty($card['details'])) : ?>
+                                        <ul class="vertical-cards__card-details">
+                                            <?php foreach ($card['details'] as $line) : ?>
+                                                <li class="vertical-cards__card-detail"><?php echo esc_html($line); ?></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (is_string($card['content']) && trim($card['content']) !== '') : ?>
+                                <div class="vertical-cards__card-content">
+                                    <?php echo wp_kses_post($card['content']); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <?php if ($card['img_url'] !== '') : ?>
+                            <div class="vertical-cards__card-media">
+                                <img
+                                    class="vertical-cards__card-img"
+                                    src="<?php echo esc_url($card['img_url']); ?>"
+                                    alt="<?php echo esc_attr($card['img_alt'] !== '' ? $card['img_alt'] : $card['title']); ?>"
+                                    loading="<?php echo $idx === 0 ? 'eager' : 'lazy'; ?>"
+                                    decoding="async"
+                                />
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
     </div>
 </section>

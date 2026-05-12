@@ -376,4 +376,12 @@
     height: auto;
     vertical-align: middle;
   }
+
+  // Block editor / wp-admin: static stack (no `data-vertical-cards-slider`).
+  &__admin-preview {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(24);
+    width: 100%;
+  }
 }

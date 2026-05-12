@@ -24,8 +24,8 @@ $content        = get_field('content');
 $cta            = get_field('cta');
 $image_position = get_field('image_position');
 
-$title    = $style === 'style-2' ? get_field('title') : '';
-$subtitle = $style === 'style-2' ? get_field('subtitle') : '';
+$title    = get_field('title');
+$subtitle = get_field('subtitle');
 $title    = is_string($title) ? trim($title) : '';
 $subtitle = is_string($subtitle) ? trim($subtitle) : '';
 
@@ -59,13 +59,11 @@ $classes = implode(' ', array_filter(array_map('esc_attr', $style_classes)));
     <div class="image-content__layout">
         <div class="image-content__content-col">
             <div class="image-content__inner">
-                <?php if ($style === 'style-2') : ?>
-                    <?php if ($title !== '') : ?>
-                        <h3 class="image-content__title"><?php echo esc_html($title); ?></h3>
-                    <?php endif; ?>
-                    <?php if ($subtitle !== '') : ?>
-                        <p class="image-content__subtitle"><?php echo esc_html($subtitle); ?></p>
-                    <?php endif; ?>
+                <?php if ($title !== '') : ?>
+                    <h3 class="image-content__title"><?php echo esc_html($title); ?></h3>
+                <?php endif; ?>
+                <?php if ($subtitle !== '') : ?>
+                    <p class="image-content__subtitle"><?php echo esc_html($subtitle); ?></p>
                 <?php endif; ?>
 
                 <?php if (is_string($content) && trim($content) !== '') : ?>
