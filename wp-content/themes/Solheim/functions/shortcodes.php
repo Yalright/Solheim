@@ -4,8 +4,8 @@
  *
  * Forgot password: [solheim_forgot_password]
  * Optional attributes: redirect="/url/" submit_text="Send" email_label="Email"
- * Register CTA (.end-of-form) is output by the couples/vendors login templates after the form shortcode.
- * On other templates, call solheim_render_end_of_login_form() after the shortcode or use show_register_link="1".
+ * Register CTA (.end-of-form): call solheim_render_end_of_login_form() after the form shortcode
+ * or use show_register_link="1" on the shortcode.
  */
 if (!defined('ABSPATH')) {
     exit;

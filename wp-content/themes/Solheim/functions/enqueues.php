@@ -24,16 +24,6 @@ function site_scripts()
 	wp_enqueue_style('slick-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css', array(), 'all');
 	wp_enqueue_style('splide-css', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css', array(), '4.1.4');
 
-	if (is_page_template(array('templates/template-couples-login.php', 'templates/template-vendors-login.php'))) {
-		wp_enqueue_script(
-			'login-page-gravity-forms',
-			get_template_directory_uri() . '/assets/js/login-page-gravity-forms.js',
-			array(),
-			filemtime(get_template_directory() . '/assets/js/login-page-gravity-forms.js'),
-			true
-		);
-	}
-
 	// Comment reply script for threaded comments
 	// if (is_singular() and comments_open() and (get_option('thread_comments') == 1)) {
 	// 	wp_enqueue_script('comment-reply');
