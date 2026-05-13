@@ -5,6 +5,7 @@ function rt_allowed_block_types($allowed_blocks, $editor_context)
 {
     $page_blocks = array(
         'acf/accordion',
+        'acf/accommodation',
         'acf/cards-overlayed',
         'acf/cards-standard',
         'acf/contact-form',
@@ -15,6 +16,7 @@ function rt_allowed_block_types($allowed_blocks, $editor_context)
         'acf/hero-team',
         'acf/hero-testimonial',
         'acf/hero-video',
+        'acf/how-to-qualify',
         'acf/image-content',
         'acf/image-slider',
         'acf/latest-news',
@@ -27,6 +29,7 @@ function rt_allowed_block_types($allowed_blocks, $editor_context)
         'acf/promotional-image-text',
         'acf/rolex-banner',
         'acf/team-promo',
+        'acf/travel-map',
         'acf/vertical-cards',
         'acf/wysiwyg',
         'core/paragraph',

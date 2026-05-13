@@ -1,0 +1,273 @@
+// Reference: IMG-Solheim — https://www.figma.com/design/Pv14sPYOTVtCVbSvsbe1cI/IMG-Solheim?node-id=296-1776
+
+.accommodation {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: rem-calc(120);
+  // `hidden` breaks `position: sticky` on descendants; `clip` trims overflow without scroll containment.
+  overflow-x: clip;
+  overflow-y: visible;
+
+  &__hero-stage {
+    position: relative;
+    width: 100%;
+
+    // Stack hero and overlay in one row so the stage grows with the taller of map or panel.
+    @include mq(large-up) {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+
+      > .accommodation__hero,
+      > .accommodation__hero-overlay {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__hero {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 0;
+
+    @include mq(large-up) {
+      align-self: start;
+    }
+  }
+
+  &__hero-figure {
+    margin: 0;
+    width: 100%;
+    line-height: 0;
+    position: relative;
+  }
+
+  &__hero-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-position: center top;
+  }
+
+  &__hero-pin {
+    position: absolute;
+    z-index: 1;
+    width: rem-calc(51);
+    height: rem-calc(51);
+    margin: 0;
+    padding: 0;
+    transform: translate(-50%, -100%);
+    line-height: 0;
+    pointer-events: none;
+
+    &.is-active {
+      z-index: 2;
+    }
+  }
+
+  &__hero-pin-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  // When hero exists: on large screens overlay shares the hero row (grid) so the blue panel sits on the map.
+  &__hero-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: rem-calc(24);
+
+    @include mq(large-up) {
+      align-self: start;
+      padding-top: rem-calc(120);
+      pointer-events: none;
+    }
+  }
+
+  &__split {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0;
+  }
+
+  &__split-left {
+    display: none;
+    flex: 1 1 50%;
+    min-width: 0;
+
+    @include mq(large-up) {
+      display: block;
+    }
+  }
+
+  &__split-right {
+    flex: 1 1 100%;
+    min-width: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    @include mq(large-up) {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+  }
+
+  &__panel {
+    width: 100%;
+    max-width: 100%;
+    margin-top: rem-calc(48);
+    padding: rem-calc(30);
+    background-color: $blue;
+    border-radius: rem-calc(15);
+    box-sizing: border-box;
+    pointer-events: auto;
+
+    @include mq(large-up) {
+      max-width: 100%;
+      margin-top: rem-calc(64);
+    }
+
+    .accommodation__hero-overlay & {
+      margin-top: 0;
+    }
+  }
+
+  &__introduction {
+    margin: 0 0 rem-calc(28);
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $white;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    p,
+    li,
+    span,
+    strong,
+    b {
+      color: $white !important;
+    }
+
+    a {
+      color: $white !important;
+      text-decoration: underline;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__locations {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__location {
+    margin: 0;
+    padding: rem-calc(24) 0 0;
+    border-top: 1px solid rgba($white, 0.25);
+
+    &:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+  }
+
+  &__location-subtitle {
+    display: flex;
+    align-items: center;
+    gap: rem-calc(10);
+    margin: 0;
+    padding-bottom: rem-calc(20);
+    font-family: $heading-font;
+    font-weight: 400;
+    font-size: rem-calc(14);
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba($white, 0.85);
+  }
+
+  &__location-subtitle-icon {
+    flex-shrink: 0;
+    width: rem-calc(21);
+    height: rem-calc(21);
+    display: block;
+  }
+
+  &__location-subtitle-text {
+    min-width: 0;
+  }
+
+  &__location-title {
+    margin: 0 0 rem-calc(16);
+    padding-bottom: rem-calc(12);
+    border-bottom: 1px solid $white;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(28);
+    line-height: 1.1;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: $white;
+
+    @include mq(medium-up) {
+      font-size: rem-calc(36);
+    }
+  }
+
+  &__location-content {
+    margin: 0 0 rem-calc(16);
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+    color: $white;
+
+    p,
+    li,
+    span,
+    strong,
+    b {
+      color: $white !important;
+    }
+
+    a {
+      color: $white !important;
+      text-decoration: underline;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__location-figure {
+    margin: rem-calc(16) 0 0;
+    border-radius: rem-calc(8);
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  &__location-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+}

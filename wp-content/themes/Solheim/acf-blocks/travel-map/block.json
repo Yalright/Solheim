@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/travel-map",
+  "title": "Travel Map",
+  "description": "Full-width image with two WYSIWYG columns below.",
+  "category": "custom-blocks",
+  "icon": "location",
+  "keywords": ["map", "travel", "image", "columns"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "travel-map.php"
+  }
+}

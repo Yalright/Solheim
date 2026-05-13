@@ -1,3 +1,416 @@
 .contact-form {
-  // TBD
+  width: 100%;
+  padding-top: rem-calc(48);
+  padding-bottom: rem-calc(48);
+  background-color: $white;
+
+  @include mq(large-up) {
+    padding-top: rem-calc(80);
+    padding-bottom: rem-calc(80);
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(32);
+    align-items: stretch;
+
+    @include mq(large-up) {
+      flex-direction: row;
+      align-items: center;
+      gap: rem-calc(60);
+    }
+  }
+
+  &__col {
+    min-width: 0;
+
+    @include mq(large-up) {
+      &--title {
+        flex: 0 0 40%;
+        width: 40%;
+        max-width: 40%;
+        padding-right: rem-calc(16);
+      }
+
+      &--form {
+        flex: 0 0 60%;
+        width: 60%;
+        max-width: 60%;
+        padding-left: rem-calc(16);
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(42);
+    line-height: 1.05;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: $navy;
+
+    @include mq(large-up) {
+      font-size: rem-calc(60);
+    }
+
+    br {
+      display: block;
+    }
+  }
+
+  &__form {
+    width: 100%;
+
+    .wpcf7-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: rem-calc(24);
+      row-gap: rem-calc(20);
+      margin: 0;
+      align-items: start;
+
+      > p {
+        margin: 0;
+      }
+
+      // Message (full width); submit (full row, left-aligned). Expect CF7 field order: 4 inputs → textarea → submit.
+      > p:has(textarea),
+      > p:has(.wpcf7-textarea) {
+        grid-column: 1 / -1;
+      }
+
+      > p:has(input[type="submit"]),
+      > p:has(button[type="submit"]),
+      > p:has(.wpcf7-submit) {
+        grid-column: 1 / -1;
+        justify-self: start;
+      }
+    }
+
+    @include mq(large-down) {
+      .wpcf7-form {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .wpcf7-form-control-wrap {
+      display: block;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: rem-calc(10);
+      font-family: $heading-font;
+      font-size: rem-calc(21);
+      font-weight: 300;
+      line-height: rem-calc(26);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $navy;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    textarea {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: rem-calc(12) rem-calc(14);
+      font-family: $body-font;
+      font-size: rem-calc(14);
+      line-height: rem-calc(22);
+      color: $black;
+      background-color: $white;
+      border: 1px solid rgba($navy, 0.35);
+      border-radius: 0;
+      @include transition;
+
+      &::placeholder {
+        color: rgba($black, 0.45);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $blue;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blue;
+        outline-offset: rem-calc(2);
+        border-color: $blue;
+      }
+    }
+
+    textarea {
+      min-height: rem-calc(140);
+      max-height: rem-calc(200);
+      resize: vertical;
+      padding: rem-calc(14);
+    }
+
+    input[type="submit"],
+    button[type="submit"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      margin-top: 0;
+      min-width: rem-calc(160);
+      padding: rem-calc(14) rem-calc(28);
+      font-family: $heading-font;
+      font-weight: 700;
+      font-size: rem-calc(25);
+      line-height: 1.1;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 0;
+      cursor: pointer;
+      appearance: none;
+      @include transition;
+    }
+
+    .wpcf7-spinner {
+      margin-left: rem-calc(8);
+    }
+
+    .wpcf7-not-valid-tip {
+      margin-top: rem-calc(6);
+      font-size: rem-calc(12);
+      color: $red;
+    }
+
+    .wpcf7-response-output {
+      grid-column: 1 / -1;
+      margin: rem-calc(16) 0 0;
+      padding: rem-calc(12);
+      font-size: rem-calc(14);
+      line-height: rem-calc(22);
+      border: 1px solid rgba($black, 0.15);
+    }
+  }
+
+  // Theme: title colour + submit CTA (editor palette slugs from ACF).
+  &--accent-navy {
+    .contact-form__title {
+      color: $navy;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $white;
+      background-color: $navy;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        text-decoration: none;
+        filter: brightness(1.08);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blue;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &--accent-yellow {
+    .contact-form__title {
+      color: $yellow;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $white;
+      background-color: $blue;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        text-decoration: none;
+        filter: brightness(1.08);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $navy;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &--accent-red {
+    .contact-form__title {
+      color: $red;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $white;
+      background-color: $red;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        text-decoration: none;
+        filter: brightness(1.08);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $navy;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  // Additional palette slugs if Theme field is expanded in ACF later.
+  &--accent-blue {
+    .contact-form__title {
+      color: $blue;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $white;
+      background-color: $blue;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        text-decoration: none;
+        filter: brightness(1.08);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $navy;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &--accent-green {
+    .contact-form__title {
+      color: $green;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $white;
+      background-color: $green;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        filter: brightness(1.08);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $navy;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &--accent-light-blue {
+    .contact-form__title {
+      color: $blue-300;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $navy;
+      background-color: $blue-300;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $navy;
+        filter: brightness(1.05);
+      }
+    }
+  }
+
+  &--accent-light-red {
+    .contact-form__title {
+      color: $light-red;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $white;
+      background-color: $red;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        filter: brightness(1.08);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $navy;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &--accent-black,
+  &--accent-solheim-black {
+    .contact-form__title {
+      color: $black;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $white;
+      background-color: $black;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        filter: brightness(1.15);
+      }
+    }
+  }
+
+  &--accent-white,
+  &--accent-solheim-white {
+    .contact-form__title {
+      color: $white;
+    }
+
+    .contact-form__form input[type="submit"],
+    .contact-form__form button[type="submit"] {
+      color: $white;
+      background-color: transparent;
+      border: 1px solid $white;
+
+      &:hover,
+      &:focus-visible {
+        color: $navy;
+        background-color: $white;
+        text-decoration: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blue;
+        outline-offset: 2px;
+      }
+    }
+  }
 }

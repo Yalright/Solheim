@@ -1,3 +1,262 @@
 .hero-testimonial {
-  // TBD
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  color: $white;
+  --hero-testimonial-flourish: #{$red-300};
+
+  &__splide.splide {
+    width: 100%;
+  }
+
+  .splide__track,
+  .splide__list {
+    min-height: rem-calc(520);
+    min-height: unquote("max(#{rem-calc(520)}, 72vh)");
+  }
+
+  &__slide {
+    position: relative;
+    box-sizing: border-box;
+    min-height: rem-calc(520);
+    min-height: unquote("max(#{rem-calc(520)}, 72vh)");
+    width: 100%;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  &__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      rgba($black, 0.55) 0%,
+      rgba($black, 0.25) 45%,
+      rgba($black, 0.05) 100%
+    );
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    min-height: rem-calc(520);
+    min-height: unquote("max(#{rem-calc(520)}, 72vh)");
+    padding: rem-calc(48) 0 rem-calc(64);
+    box-sizing: border-box;
+
+    @include mq(large-up) {
+      padding: rem-calc(64) 0 rem-calc(80);
+    }
+  }
+
+  &__content {
+    max-width: rem-calc(640);
+    padding-right: rem-calc(40);
+
+    @include mq(large-up) {
+      max-width: rem-calc(720);
+      padding-right: rem-calc(56);
+    }
+  }
+
+  &__quote-open {
+    margin: 0 0 rem-calc(12);
+    line-height: 0;
+  }
+
+  &__quote-icon {
+    display: inline-block;
+    color: var(--hero-testimonial-flourish);
+    vertical-align: middle;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    &--open {
+      width: rem-calc(56);
+      max-width: 22vw;
+
+      @include mq(medium-up) {
+        width: rem-calc(80);
+      }
+
+      @include mq(large-up) {
+        width: rem-calc(104);
+      }
+    }
+
+    &--close {
+      width: rem-calc(22);
+      margin-left: rem-calc(6);
+      margin-top: rem-calc(-4);
+      transform: rotate(180deg);
+      transform-origin: center;
+
+      @include mq(medium-up) {
+        width: rem-calc(28);
+      }
+
+      @include mq(large-up) {
+        width: rem-calc(36);
+        margin-left: rem-calc(8);
+      }
+    }
+  }
+
+  &__quote {
+    margin: 0 0 rem-calc(20);
+    padding: 0;
+    border: 0;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(45);
+    line-height: rem-calc(40);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $white;
+
+    @include mq(large-up) {
+      margin-bottom: rem-calc(28);
+    }
+  }
+
+  &__quote-text {
+    margin: 0;
+    font-family: $heading-font;
+  }
+
+  &__author {
+    margin: 0 0 rem-calc(12);
+    padding: 0;
+    font-family: $flourish-font;
+    font-weight: 400;
+    font-style: normal;
+    font-size: rem-calc(28);
+    line-height: 1.2;
+    color: var(--hero-testimonial-flourish);
+
+    @include mq(large-up) {
+      font-size: rem-calc(36);
+      margin-bottom: rem-calc(16);
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    padding: 0;
+    font-family: $body-font;
+    font-weight: 400;
+    font-size: rem-calc(12);
+    line-height: 1.45;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $white;
+
+    @include mq(medium-up) {
+      font-size: rem-calc(13);
+    }
+  }
+
+  &__nav-btn {
+    appearance: none;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: rem-calc(12);
+    border: 0;
+    background: transparent;
+    color: $white;
+    cursor: pointer;
+    line-height: 1;
+
+    &--prev {
+      left: rem-calc(12);
+
+      @include mq(large-up) {
+        left: rem-calc(24);
+      }
+    }
+
+    &--next {
+      right: rem-calc(12);
+
+      @include mq(large-up) {
+        right: rem-calc(24);
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $red-300;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $white;
+      outline-offset: rem-calc(4);
+    }
+  }
+
+  &__nav-icon {
+    display: block;
+    font-size: rem-calc(36);
+    font-weight: 300;
+    line-height: 1;
+
+    @include mq(large-up) {
+      font-size: rem-calc(44);
+    }
+  }
+
+  // Per-slide flourish (matches theme.json / palette where possible)
+  &__slide--theme-light-red {
+    --hero-testimonial-flourish: #{$red-300};
+  }
+
+  &__slide--theme-red {
+    --hero-testimonial-flourish: #{$red};
+  }
+
+  &__slide--theme-navy {
+    --hero-testimonial-flourish: #{$navy};
+  }
+
+  &__slide--theme-blue {
+    --hero-testimonial-flourish: #{$blue};
+  }
+
+  &__slide--theme-light-blue {
+    --hero-testimonial-flourish: #{$blue-300};
+  }
+
+  &__slide--theme-yellow {
+    --hero-testimonial-flourish: #{$yellow};
+  }
+
+  &__slide--theme-green {
+    --hero-testimonial-flourish: #{$green};
+  }
+
+  &__slide--theme-white {
+    --hero-testimonial-flourish: #{$white};
+  }
+
+  &__slide--theme-black {
+    --hero-testimonial-flourish: #{$black};
+  }
 }

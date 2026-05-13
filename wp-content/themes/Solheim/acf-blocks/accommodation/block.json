@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/accommodation",
+  "title": "Accommodation",
+  "description": "Aspect-ratio hero with an overlapping right column for intro and locations.",
+  "category": "custom-blocks",
+  "icon": "admin-home",
+  "keywords": ["accommodation", "hotel", "locations", "hero"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "accommodation.php"
+  }
+}

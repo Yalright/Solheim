@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "acf/hero-testimonial",
   "title": "Hero - Testimonial",
-  "description": "Hero with testimonial content.",
+  "description": "Full-width testimonial hero with background image, quote marks, and Splide carousel when multiple testimonials are set.",
   "category": "custom-blocks",
   "icon": "format-quote",
   "keywords": ["hero", "testimonial"],

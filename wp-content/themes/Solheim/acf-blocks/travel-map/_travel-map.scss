@@ -1,0 +1,114 @@
+.travel-map {
+  width: 100%;
+  padding-top: rem-calc(40);
+  padding-bottom: rem-calc(40);
+  background-color: $blue;
+  box-sizing: border-box;
+
+  &__image-row {
+    width: 100%;
+    margin: 0 0 rem-calc(32);
+
+    @include mq(large-up) {
+      margin-bottom: rem-calc(40);
+    }
+  }
+
+  &__figure {
+    margin: 0;
+    width: 100%;
+    line-height: 0;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  &__cols {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(24);
+    width: 100%;
+
+    @include mq(large-up) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: rem-calc(40);
+    }
+  }
+
+  &__col {
+    min-width: 0;
+    width: 100%;
+
+    @include mq(large-up) {
+      flex: 1 1 50%;
+      max-width: 50%;
+      width: 50%;
+    }
+  }
+
+  &__content {
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+    color: $white;
+
+    p,
+    li,
+    span,
+    div,
+    strong,
+    b,
+    em,
+    i,
+    blockquote,
+    td,
+    th,
+    dd,
+    dt {
+      color: $white !important;
+    }
+
+    p {
+      margin: 0 0 rem-calc(12);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: $white !important;
+      text-decoration: underline;
+
+      &:hover {
+        color: $white !important;
+        text-decoration: none;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $white !important;
+    }
+
+    span[style*="Zuume"],
+    span[style*="zuume"] {
+      color: $white !important;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 rem-calc(12);
+      padding-left: 1.25em;
+    }
+  }
+}

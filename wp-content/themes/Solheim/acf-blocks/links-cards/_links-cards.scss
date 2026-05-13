@@ -205,4 +205,115 @@
       outline-offset: 2px;
     }
   }
+
+  // Style 2: flat card — image, WYSIWYG, CTA; no blue panel, no rounded corners.
+  &--style-2 {
+    .links-cards__panel-col {
+      @include mq(large-up) {
+        align-items: stretch;
+      }
+    }
+
+    .links-cards__card {
+      max-width: none;
+      width: 100%;
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .links-cards__card-media {
+      margin: 0 0 rem-calc(16);
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .links-cards__card-img {
+      border-radius: 0;
+    }
+
+    .links-cards__card-title {
+      margin: 0 0 rem-calc(12);
+      font-size: rem-calc(28);
+      line-height: 1.15;
+      color: $navy;
+
+      @include mq(medium-up) {
+        font-size: rem-calc(32);
+        line-height: 1.2;
+      }
+
+      @include mq(large-up) {
+        font-size: rem-calc(36);
+      }
+    }
+
+    .links-cards__card-content {
+      text-align: left;
+      font-family: $body-font;
+      font-size: rem-calc(14);
+      line-height: rem-calc(22);
+      color: $blue;
+
+      p {
+        margin: 0 0 rem-calc(12);
+        color: inherit;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      strong,
+      b {
+        color: $navy;
+        font-weight: 700;
+      }
+
+      a {
+        color: $blue;
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: $navy;
+      }
+    }
+
+    .links-cards__card-cta {
+      justify-content: flex-start;
+      margin-top: rem-calc(20);
+    }
+
+    .links-cards__cta.links-cards__cta--style-2 {
+      min-width: rem-calc(160);
+      min-height: auto;
+      padding: rem-calc(12) rem-calc(24);
+      font-size: rem-calc(14);
+      line-height: 1.2;
+      color: $white;
+      background-color: $blue;
+      border: 0;
+
+      &:hover,
+      &:focus-visible {
+        color: $white;
+        text-decoration: none;
+        filter: brightness(1.08);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blue;
+        outline-offset: 2px;
+      }
+    }
+  }
 }

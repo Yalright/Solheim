@@ -1,0 +1,226 @@
+.how-to-qualify {
+  position: relative;
+  z-index: 0;
+  box-sizing: border-box;
+  background-color: $navy;
+  color: $white;
+  overflow: hidden;
+  padding-top: rem-calc(48);
+  padding-bottom: rem-calc(100);
+
+  @include mq(large-up) {
+    padding-top: rem-calc(64);
+    padding-bottom: rem-calc(120);
+  }
+
+  // Red bottom flare (decorative only)
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: rem-calc(140);
+    max-height: 28%;
+    background-color: $red;
+    clip-path: polygon(0 100%, 0 88%, 22% 100%, 100% 42%, 100% 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__grid {
+    display: grid;
+    gap: rem-calc(40);
+    align-items: start;
+
+    @include mq(large-up) {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: rem-calc(48);
+    }
+  }
+
+  &__col--left {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(20);
+
+    @include mq(large-up) {
+      padding-right: rem-calc(80);
+    }
+  }
+
+  &__heading {
+    margin: 0;
+    padding: 0;
+    font-family: $heading-font;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__heading-line {
+    display: block;
+    font-family: $heading-font;
+  }
+
+  &__heading-line--small {
+    font-size: rem-calc(60);
+    margin-bottom: rem-calc(4);
+  }
+
+  &__heading-line--large {
+    font-size: rem-calc(95);
+  }
+
+  &__ping {
+    margin: rem-calc(8) 0 0;
+    line-height: 0;
+    max-width: 100%;
+  }
+
+  &__ping-img {
+    display: block;
+    width: 100%;
+    max-width: rem-calc(362);
+    height: auto;
+  }
+
+  &__ctas {
+    margin: rem-calc(24) 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(12);
+  }
+
+  &__cta-item {
+    margin: 0;
+  }
+
+  &__cta {
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: rem-calc(22);
+    line-height: 1.2;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: rem-calc(14) rem-calc(16);
+    white-space: normal;
+    hyphens: auto;
+  }
+
+  &__teams {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(32);
+  }
+
+  &__team {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__team-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem-calc(12);
+    margin-bottom: rem-calc(12);
+  }
+
+  &__team-title {
+    margin: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35em;
+    font-family: $heading-font;
+    font-weight: 700;
+    font-size: rem-calc(55);
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  &__team-title-part {
+    font-family: $heading-font;
+  }
+
+  &__team-title-part--lead {
+    color: $white;
+  }
+
+  &__team-title-part--accent-blue {
+    color: $blue-300;
+  }
+
+  &__team-title-part--accent-pink {
+    color: $red-300;
+  }
+
+  &__team-title-part--single {
+    color: $white;
+  }
+
+  &__team-chevron {
+    flex-shrink: 0;
+    width: 0;
+    height: 0;
+    border-left: rem-calc(5) solid transparent;
+    border-right: rem-calc(5) solid transparent;
+    border-bottom: rem-calc(7) solid $white;
+    margin-top: rem-calc(2);
+  }
+
+  &__team-rule {
+    height: 1px;
+    background-color: $white;
+    margin-bottom: rem-calc(16);
+  }
+
+  &__team-content {
+    font-family: $body-font;
+    font-size: rem-calc(14);
+    line-height: rem-calc(22);
+    color: $white;
+
+    p,
+    li {
+      font-size: rem-calc(14);
+      line-height: rem-calc(22);
+    }
+
+    p,
+    li,
+    span,
+    strong,
+    b {
+      color: $white !important;
+    }
+
+    a {
+      color: $white !important;
+      text-decoration: underline;
+    }
+
+    ul {
+      margin: 0 0 rem-calc(12);
+      padding-left: rem-calc(20);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

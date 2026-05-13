@@ -43,7 +43,8 @@
             "default_value": "",
             "allowed_colors": [
                 "blue",
-                "solheim-white"
+                "solheim-white",
+                "navy"
             ],
             "exclude_colors": "",
             "return_format": "background",
@@ -209,5 +210,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778580170
+    "modified": 1778663913
 }

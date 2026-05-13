@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/how-to-qualify",
+  "title": "How to Qualify",
+  "description": "Two-column qualify section with CTAs and team rules.",
+  "category": "custom-blocks",
+  "icon": "awards",
+  "keywords": ["qualify", "teams", "solheim", "cta"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "how-to-qualify.php"
+  }
+}
