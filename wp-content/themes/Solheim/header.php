@@ -15,7 +15,19 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<?php
+$solheim_header_style_white = false;
+if (function_exists('get_field') && is_singular()) {
+    $solheim_post_type = get_post_type();
+    if (in_array($solheim_post_type, array('post', 'page'), true)) {
+        $solheim_header_style = get_field('header_style');
+        if ($solheim_header_style === 'white') {
+            $solheim_header_style_white = true;
+        }
+    }
+}
+?>
+<body <?php body_class($solheim_header_style_white ? 'header-style--white' : ''); ?>>
     <?php wp_body_open(); ?>
 
     <?php

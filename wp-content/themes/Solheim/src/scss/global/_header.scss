@@ -62,9 +62,10 @@
         @include buttonReset;
         position: fixed;
         left: rem-calc(16);
-        top: rem-calc(18);
+        top: 43px;
         z-index: 1100;
         cursor: pointer;
+        transform: translateY(-50%);
 
         @include mq(large-up) {
             left: rem-calc(20);
@@ -356,12 +357,52 @@
     }
 }
 
+// ACF Page Settings → Header Style: White (posts & pages)
+body.header-style--white {
+    .site-header {
+        background-color: $white;
+    }
+
+    .site-header__hamburger-line {
+        background-color: $black;
+    }
+
+    .site-header__logo {
+        img {
+            filter: invert(1);
+        }
+
+        span {
+            color: $black;
+        }
+    }
+
+    .site-header__cta--secondary.btn-outline-white {
+        color: $navy;
+        border-color: $navy;
+        background-color: transparent;
+
+        &:hover,
+        &:focus-visible {
+            color: $white;
+            background-color: $navy;
+            border-color: $navy;
+            text-decoration: none;
+        }
+
+        &:focus-visible {
+            outline: 2px solid $blue;
+            outline-offset: 2px;
+        }
+    }
+}
+
 body.admin-bar .site-header {
     top: 32px;
 }
 
 body.admin-bar .site-header__menu-toggle {
-    top: calc(#{rem-calc(18)} + 32px);
+    top: calc(43px + 32px);
 }
 
 body.site-header-overlay-active {
