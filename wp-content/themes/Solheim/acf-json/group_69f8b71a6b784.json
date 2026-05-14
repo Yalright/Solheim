@@ -18,7 +18,8 @@
             },
             "choices": {
                 "style-1": "Style 1",
-                "style-2": "Style 2"
+                "style-2": "Style 2",
+                "style-3": "Style 3"
             },
             "default_value": "style-1",
             "return_format": "value",
@@ -86,7 +87,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69f8b71c17670",
+                        "operator": "==",
+                        "value": "style-1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -107,7 +116,15 @@
             "type": "date_picker",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69f8b71c17670",
+                        "operator": "==",
+                        "value": "style-1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -127,7 +144,15 @@
             "type": "number",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69f8b71c17670",
+                        "operator": "==",
+                        "value": "style-1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -164,5 +189,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1777910926
+    "modified": 1778802119
 }

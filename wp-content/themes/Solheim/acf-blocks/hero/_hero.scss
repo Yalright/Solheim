@@ -12,6 +12,13 @@
     height: 65vh;
   }
 
+  // Full-width image; height follows intrinsic aspect ratio (no crop / no cover).
+  &--style-3 {
+    min-height: 0;
+    height: auto;
+    overflow: visible;
+  }
+
   &__bg {
     position: absolute;
     inset: 0;
@@ -29,6 +36,34 @@
   }
 
   &__bg--desktop {
+    display: none;
+
+    @include mq(large-up) {
+      display: block;
+    }
+  }
+
+  &__intrinsic {
+    width: 100%;
+    line-height: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__intrinsic--mobile {
+    display: block;
+
+    @include mq(large-up) {
+      display: none;
+    }
+  }
+
+  &__intrinsic--desktop {
     display: none;
 
     @include mq(large-up) {
