@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "acf/faqs",
   "title": "FAQs",
-  "description": "Two-column FAQs with categories, sections, and expandable Q&A.",
+  "description": "FAQs with categories: Style 1 (two-column + anchor nav) or Style 2 (tabs, 750px column, ripple art).",
   "category": "custom-blocks",
   "icon": "editor-help",
   "keywords": ["faq", "accordion", "questions"],

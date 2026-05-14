@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "acf/contact-form",
   "title": "Contact Form",
-  "description": "Contact form embed or shortcode wrapper.",
+  "description": "Contact layout: Style 1 (title + CF7). Style 2 adds image and WYSIWYG under the title (Become a partner).",
   "category": "custom-blocks",
   "icon": "feedback",
   "keywords": ["contact", "form"],

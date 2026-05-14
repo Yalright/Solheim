@@ -1,58 +1,11 @@
 {
-    "key": "group_69f9c9be8be80",
-    "title": "Logo Bar",
+    "key": "group_6a06502c3bd85",
+    "title": "News",
     "fields": [
         {
-            "key": "field_6a064c61f0436",
-            "label": "Style",
-            "name": "style",
-            "aria-label": "",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "style-1": "Style 1",
-                "style-2": "Style 2"
-            },
-            "default_value": "style-1",
-            "return_format": "value",
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "layout": "horizontal"
-        },
-        {
-            "key": "field_69f9ca3e075ca",
-            "label": "Theme",
-            "name": "theme",
-            "aria-label": "",
-            "type": "editor_palette",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "navy",
-            "allowed_colors": [
-                "blue",
-                "navy"
-            ],
-            "exclude_colors": "",
-            "return_format": "background",
-            "allow_in_bindings": 0
-        },
-        {
-            "key": "field_69f9c9bf5f02e",
-            "label": "Title",
-            "name": "title",
+            "key": "field_6a06502df65cc",
+            "label": "Filter 1",
+            "name": "filter_1",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -71,11 +24,11 @@
             "append": ""
         },
         {
-            "key": "field_69f9c9cd5f02f",
-            "label": "Logos",
-            "name": "logos",
+            "key": "field_6a06506df65cd",
+            "label": "Filter 2",
+            "name": "filter_2",
             "aria-label": "",
-            "type": "gallery",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -84,19 +37,54 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min": "",
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "insert": "append",
-            "preview_size": "medium"
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a06506ff65ce",
+            "label": "Filter 3",
+            "name": "filter_3",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a065071f65cf",
+            "label": "Results",
+            "name": "results",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -104,7 +92,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/logo-bar"
+                "value": "acf\/news"
             }
         ]
     ],
@@ -120,5 +108,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1778797693
+    "modified": 1778798982
 }

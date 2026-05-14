@@ -1,0 +1,110 @@
+// Search & Filter Pro — theme results template (search-filter/results.php)
+// No box-shadow; no hover visual changes on cards.
+
+.search-results-container {
+  width: 100%;
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem-calc(20);
+
+  @include mq(medium-up) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: rem-calc(24);
+  }
+
+  @include mq(large-up) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: rem-calc(28);
+  }
+}
+
+.search-filter-results-item {
+  min-width: 0;
+}
+
+.search-filter-results-item__card {
+  display: flex;
+  flex-direction: column;
+  min-height: rem-calc(370);
+  height: 100%;
+  background-color: $white;
+  color: inherit;
+  text-decoration: none;
+  border-radius: rem-calc(10);
+  overflow: hidden;
+
+  &:focus-visible {
+    outline: 2px solid $blue;
+    outline-offset: rem-calc(2);
+  }
+}
+
+.search-filter-results-item__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #d9d9d9;
+  overflow: hidden;
+}
+
+.search-filter-results-item__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.search-filter-results-item__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: rem-calc(18) 0 rem-calc(18);
+  text-align: left;
+}
+
+.search-filter-results-item__category {
+  margin: 0 0 rem-calc(10);
+  padding: 0;
+  font-family: $body-font;
+  font-size: rem-calc(12);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba($black, 0.5);
+}
+
+.search-filter-results-item__title {
+  margin: 0 0 rem-calc(16);
+  padding: 0;
+  font-family: $heading-font;
+  font-size: rem-calc(32);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: $navy;
+}
+
+.search-filter-results-item__cta {
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: rem-calc(16);
+  margin-left: 0;
+  margin-right: 0;
+  padding: rem-calc(8) rem-calc(18);
+  border: 1px solid $navy;
+  border-radius: 0;
+  background-color: $white;
+  font-family: $heading-font;
+  font-size: rem-calc(20);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: $navy;
+}

@@ -1,0 +1,374 @@
+.news {
+  width: 100%;
+  padding-top: rem-calc(48);
+  padding-bottom: rem-calc(48);
+
+  @include mq(large-up) {
+    padding-top: rem-calc(64);
+    padding-bottom: rem-calc(64);
+  }
+
+  &__inner {
+    min-width: 0;
+  }
+
+  // Toolbar: sort (left) | radios (centre) | search (right) — matches S&F markup in .news__filter
+  &__filters {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: rem-calc(20);
+    margin-bottom: rem-calc(32);
+    width: 100%;
+
+    @include mq(large-up) {
+      display: grid;
+      grid-template-columns: minmax(0, max-content) minmax(0, 1fr) minmax(0, max-content);
+      align-items: center;
+      column-gap: rem-calc(24);
+      row-gap: rem-calc(16);
+      margin-bottom: rem-calc(40);
+    }
+  }
+
+  // Placeholder styling: must beat Search & Filter CSS — use .news .news__filters + text inputs only
+  & .news__filters .search-filter-field__input input[type="text"] {
+    &::placeholder {
+      font-family: $body-font !important;
+      font-size: rem-calc(12) !important;
+      font-weight: 300 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: rgba($black, 0.45) !important;
+      opacity: 1 !important;
+    }
+
+    &::-webkit-input-placeholder {
+      font-family: $body-font !important;
+      font-size: rem-calc(12) !important;
+      font-weight: 300 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: rgba($black, 0.45) !important;
+    }
+
+    &::-moz-placeholder {
+      font-family: $body-font !important;
+      font-size: rem-calc(12) !important;
+      font-weight: 300 !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+      color: rgba($black, 0.45) !important;
+      opacity: 1 !important;
+    }
+  }
+
+  &__filter {
+    min-width: 0;
+
+    @include mq(large-up) {
+      &:nth-child(1) {
+        justify-self: start;
+      }
+
+      &:nth-child(2) {
+        justify-self: center;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      &:nth-child(3) {
+        justify-self: end;
+      }
+    }
+
+    > * {
+      max-width: 100%;
+    }
+  }
+
+  // —— Sort / Order by (plain “ORDER BY DATE” look, combobox chrome hidden) ——
+  &__filter:has(.search-filter-field--control-type-sort) {
+    // Parent + direct children only: col 1 = label, col 2 = combobox (SR text same row; listbox/popover untouched)
+    .search-filter-field--control-type-sort {
+      display: grid;
+      grid-template-columns: max-content minmax(0, 1fr);
+      align-items: center;
+      column-gap: rem-calc(10);
+      row-gap: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+
+      > .search-filter-label {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      > .search-filter-field__input {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+      }
+
+      > .search-filter-component-combobox-base__screen-reader-text {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: start;
+        justify-self: start;
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
+    }
+
+    .search-filter-label {
+      position: relative;
+      top: rem-calc(3);
+      margin: 0;
+      padding: 0;
+      font-family: $heading-font;
+      font-size: rem-calc(14);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba($black, 0.45);
+    }
+
+    .search-filter-component-combobox-base {
+      display: inline-flex;
+      flex: 0 1 auto;
+      align-items: baseline;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .search-filter-component-combobox__header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      min-height: 0;
+    }
+
+    .search-filter-component-combobox__listbox-toggle,
+    .search-filter-component-combobox__input-divider,
+    .search-filter-component-combobox__clear-selection {
+      display: none !important;
+    }
+
+    .search-filter-component-combobox__actions {
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .search-filter-component-combobox__actions-input {
+      display: inline-block;
+      width: auto;
+      min-width: rem-calc(48);
+      max-width: rem-calc(200);
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none !important;
+      font-family: $heading-font;
+      font-size: rem-calc(14);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: $navy;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blue;
+        outline-offset: rem-calc(2);
+      }
+    }
+  }
+
+  // —— Category radios as horizontal text tabs (no radio circles) ——
+  &__filter:has(.search-filter-field--input-type-radio) {
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+
+    @include mq(large-up) {
+      display: flex;
+      justify-content: center;
+      overflow-x: visible;
+    }
+
+    .search-filter-field--input-type-radio {
+      display: inline-block;
+      width: auto;
+      max-width: 100%;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .search-filter-input-group {
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      gap: rem-calc(8) rem-calc(24);
+      margin: 0;
+      padding: 0;
+      border: 0;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .search-filter-input-radio {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      margin: 0;
+    }
+
+    .search-filter-input-radio__input {
+      @include visually-hidden;
+    }
+
+    .search-filter-input-radio__control {
+      display: none !important;
+    }
+
+    .search-filter-input-radio__label {
+      margin: 0;
+      padding: 0;
+      font-family: $heading-font;
+    }
+
+    .search-filter-input-radio__container {
+      display: inline-block;
+      margin: 0;
+      padding: 0 0 rem-calc(6);
+      border: 0;
+      border-bottom: 3px solid transparent;
+      background: transparent;
+      font-family: $heading-font;
+      font-size: rem-calc(14);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: $navy;
+      cursor: pointer;
+      transition: border-color 0.15s ease, font-weight 0.15s ease;
+    }
+
+    .search-filter-input-radio--is-active .search-filter-input-radio__container,
+    .search-filter-input-radio:has(.search-filter-input-radio__input:checked) .search-filter-input-radio__container {
+      font-weight: 700;
+      border-bottom-color: $navy;
+    }
+  }
+
+  // —— Search: icon + minimal text field (set placeholder to “SEARCH” in Search & Filter) ——
+  &__filter:has(.search-filter-field--type-search) {
+    @include mq(large-up) {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .search-filter-field--type-search {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: rem-calc(10);
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .search-filter-label {
+      @include visually-hidden;
+    }
+
+    .search-filter-input-text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: rem-calc(10);
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .search-filter-input-text__icon {
+      flex-shrink: 0;
+      color: rgba($black, 0.45);
+
+      .search-filter-icon__svg {
+        display: block;
+        width: rem-calc(18);
+        height: rem-calc(18);
+      }
+    }
+
+    .search-filter-field__input input {
+      flex: 1 1 auto;
+      min-width: 0;
+      width: 100%;
+      max-width: rem-calc(220);
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none !important;
+      font-family: $heading-font;
+      font-size: rem-calc(14);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $navy;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blue;
+        outline-offset: rem-calc(2);
+      }
+    }
+  }
+
+  &__results {
+    min-width: 0;
+
+    .search-results-container {
+      width: 100%;
+    }
+  }
+}

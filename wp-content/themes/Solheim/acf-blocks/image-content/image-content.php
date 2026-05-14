@@ -1,6 +1,8 @@
 <?php
 /**
  * Block - Image + Content
+ *
+ * Title: ACF textarea — line breaks and literal br tags; sanitized (br only) then nl2br for newlines.
  */
 
 $block_data     = include get_template_directory() . '/acf-blocks/block-settings/block-settings.php';
@@ -60,7 +62,7 @@ $classes = implode(' ', array_filter(array_map('esc_attr', $style_classes)));
         <div class="image-content__content-col">
             <div class="image-content__inner">
                 <?php if ($title !== '') : ?>
-                    <h3 class="image-content__title"><?php echo esc_html($title); ?></h3>
+                    <h3 class="image-content__title"><?php echo nl2br(wp_kses($title, array('br' => array())), true); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wp_kses + nl2br only. ?></h3>
                 <?php endif; ?>
                 <?php if ($subtitle !== '') : ?>
                     <p class="image-content__subtitle"><?php echo esc_html($subtitle); ?></p>

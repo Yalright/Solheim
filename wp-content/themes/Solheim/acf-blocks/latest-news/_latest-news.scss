@@ -20,7 +20,7 @@
     position: relative;
     z-index: 5;
     margin: 0;
-    padding:0;
+    padding: 0;
     background: linear-gradient(
       to bottom,
       rgba($white, 1) 0%,
@@ -62,9 +62,10 @@
     align-items: center;
     gap: rem-calc(18);
     margin-bottom: 40px;
+
     a {
       &:hover {
-        color:$navy;
+        color: $navy;
       }
     }
   }
@@ -165,6 +166,22 @@
     .latest-news__card-cta {
       color: $white;
       border-color: $white;
+    }
+  }
+
+  // style-2: navy section only; same layout — vertical blue title, navy fade behind title text
+  &.latest-news--style-2 {
+    background-color: $navy;
+
+    .latest-news__title {
+      background: linear-gradient(
+        to bottom,
+        rgba($navy, 1) 0%,
+        rgba($navy, 1) 50%,
+        rgba($navy, 0) 75%,
+        rgba($navy, 0) 100%
+      );
+      color: $blue;
     }
   }
 }

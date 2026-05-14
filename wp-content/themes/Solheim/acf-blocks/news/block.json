@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/news",
+  "title": "News",
+  "description": "Search & Filter Pro: three filter shortcodes in one row, then a results shortcode. Result card markup is controlled in search-filter/results.php.",
+  "category": "custom-blocks",
+  "icon": "filter",
+  "keywords": ["news", "search", "filter", "shortcode"],
+  "supports": {
+    "align": true,
+    "mode": true,
+    "html": false
+  },
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "news.php"
+  }
+}

@@ -82,26 +82,6 @@
         }
       }
     }
-
-    &.blue,
-    &.has-blue-background-color {
-      .image-content__content,
-      .image-content__content p,
-      .image-content__content li,
-      .image-content__content span,
-      .image-content__content a,
-      .image-content__content h1,
-      .image-content__content h2,
-      .image-content__content h3,
-      .image-content__content h4 {
-        color: $white !important;
-      }
-
-      .image-content__content span[style*="Zuume"],
-      .image-content__content span[style*="zuume"] {
-        color: $white !important;
-      }
-    }
   }
 
   &--img-right {
@@ -184,6 +164,27 @@
     .image-content__title,
     .image-content__subtitle {
       color: $white;
+    }
+
+    .image-content__content,
+    .image-content__content p,
+    .image-content__content li,
+    .image-content__content span,
+    .image-content__content a,
+    .image-content__content h1,
+    .image-content__content h2,
+    .image-content__content h3,
+    .image-content__content h4 {
+      color: $white !important;
+    }
+
+    .image-content__content span[style*="Zuume"],
+    .image-content__content span[style*="zuume"] {
+      color: $white !important;
+    }
+
+    .image-content__content a:hover {
+      color: $white !important;
     }
   }
 

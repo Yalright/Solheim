@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "acf/logo-bar",
   "title": "Logo bar",
-  "description": "Row of partner or client logos.",
+  "description": "Partner logos: style-1 (title + Splide slider) or style-2 (Global partners — centred title, static grid up to 4 columns, no slider).",
   "category": "custom-blocks",
   "icon": "grid-view",
   "keywords": ["logos", "brands"],

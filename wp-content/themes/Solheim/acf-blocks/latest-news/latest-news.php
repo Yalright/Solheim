@@ -1,6 +1,9 @@
 <?php
 /**
  * Block - Latest News
+ *
+ * ACF: style (style-1 | style-2). Markup is the same; style-2 only changes section background to navy
+ * and keeps the vertical title blue with a navy-based fade (see SCSS).
  */
 
 $block_data     = include get_template_directory() . '/acf-blocks/block-settings/block-settings.php';
@@ -10,6 +13,10 @@ $block_id       = ! empty($block_data['block_id']) ? 'id="' . esc_attr($block_da
 $block_name = 'latest-news';
 array_unshift($style_classes, $block_name);
 $style_classes[] = $block_name;
+
+$style_raw = get_field('style');
+$layout    = (is_string($style_raw) && trim($style_raw) === 'style-2') ? 'style-2' : 'style-1';
+$style_classes[] = 'latest-news--' . $layout;
 
 $title           = get_field('title');
 $browse_all_cta  = get_field('browse_all_cta');

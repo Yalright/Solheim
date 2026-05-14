@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "acf/latest-news",
   "title": "Latest News",
-  "description": "Latest posts or news listing.",
+  "description": "Latest posts or news listing. Style-2: navy background; same layout with vertical blue title.",
   "category": "custom-blocks",
   "icon": "admin-post",
   "keywords": ["news", "posts"],
