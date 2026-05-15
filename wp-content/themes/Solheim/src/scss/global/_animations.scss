@@ -64,12 +64,23 @@ body:not(.wp-admin) {
   .guten-block:not(.block-search-filters):not(.block-search-results):not(.results-wrapper) {
     opacity: 0;
   }
+
+  // Pair scroll crossfade controls opacity on these panels (see team-promo-captains.js).
+  .team-promo-pair .team-promo.team-promo--pair-panel {
+    opacity: 1;
+    animation: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   body:not(.wp-admin) {
     .guten-block:not(.block-search-filters):not(.block-search-results):not(.results-wrapper) {
       opacity: 1;
+    }
+
+    .team-promo-pair .team-promo.team-promo--pair-panel {
+      opacity: 1;
+      animation: none !important;
     }
   }
 

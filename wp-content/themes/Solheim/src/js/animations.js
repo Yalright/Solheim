@@ -27,7 +27,10 @@
       return;
     }
 
-    var els = collectTargets();
+    var all = collectTargets();
+    var els = Array.prototype.filter.call(all, function (el) {
+      return !el.closest('.team-promo-pair');
+    });
     if (!els.length) {
       return;
     }
@@ -76,8 +79,10 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function () {
+      window.setTimeout(init, 0);
+    });
   } else {
-    init();
+    window.setTimeout(init, 0);
   }
 })();
