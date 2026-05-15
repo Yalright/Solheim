@@ -8,7 +8,7 @@
 @import "global/_mixin";
 
 // Global partials
-// @import "global/_animations";
+@import "global/_animations";
 @import "global/_spacing";
 @import "global/_typography-mixins";
 @import "global/_typography";
@@ -16,7 +16,6 @@
 @import "global/_blocks";
 @import "global/_base";
 @import "global/_button";
-// @import "global/_animations";
 
 // Global elements
 @import "global/_footer";

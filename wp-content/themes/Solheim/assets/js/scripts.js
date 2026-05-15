@@ -69,6 +69,90 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+/**
+ * Viewport entrance: subtle fade-in + slide-down on Gutenberg ACF blocks only.
+ * Uses Intersection Observer (efficient vs scroll listeners; takeRecords for above-fold).
+ * Exclusions must stay in sync with src/scss/global/_animations.scss
+ * (header is excluded so site-header / offcanvas are never opacity-hidden).
+ */
+(function () {
+  'use strict';
+
+  var EXCLUDED_BLOCK =
+    '.guten-block:not(.block-search-filters):not(.block-search-results):not(.results-wrapper)';
+  var REVEAL_CLASS = 'fadeIn-down';
+
+  function collectTargets() {
+    return document.querySelectorAll(EXCLUDED_BLOCK);
+  }
+
+  function revealWithoutAnimation(els) {
+    els.forEach(function (el) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+  function init() {
+    if (document.body.classList.contains('wp-admin')) {
+      return;
+    }
+
+    var els = collectTargets();
+    if (!els.length) {
+      return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    if (typeof window.IntersectionObserver === 'undefined') {
+      revealWithoutAnimation(els);
+      return;
+    }
+
+    var observer = new window.IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+          var target = entry.target;
+          observer.unobserve(target);
+          target.classList.add(REVEAL_CLASS);
+        });
+      },
+      {
+        root: null,
+        rootMargin: '40px 0px 0px 0px',
+        threshold: 0,
+      }
+    );
+
+    els.forEach(function (el) {
+      observer.observe(el);
+    });
+
+    // Synchronously handle elements already in view (avoids waiting for the next frame).
+    var pending = observer.takeRecords();
+    if (pending.length) {
+      pending.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          observer.unobserve(entry.target);
+          entry.target.classList.add(REVEAL_CLASS);
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
 (function () {
   function applyOrder(stack) {
     var cards = stack.querySelectorAll(".cards-overlayed__card");
@@ -1161,65 +1245,5 @@ window.addEventListener('DOMContentLoaded', function () {
         window.requestAnimationFrame(syncStack);
       }, 150);
     });
-  });
-});
-
-window.addEventListener('DOMContentLoaded', function () {
-  var blocks = document.querySelectorAll('[data-faqs-style2]');
-  if (!blocks.length) {
-    return;
-  }
-
-  blocks.forEach(function (section) {
-    var tabs = section.querySelectorAll('[data-faqs-s2-tab]');
-    var panels = section.querySelectorAll('[data-faqs-s2-panel]');
-    if (!tabs.length || !panels.length || tabs.length !== panels.length) {
-      return;
-    }
-
-    function activate(index) {
-      var i;
-      for (i = 0; i < tabs.length; i++) {
-        var on = i === index;
-        tabs[i].classList.toggle('is-active', on);
-        tabs[i].setAttribute('aria-selected', on ? 'true' : 'false');
-        tabs[i].tabIndex = on ? 0 : -1;
-        if (on) {
-          panels[i].removeAttribute('hidden');
-        } else {
-          panels[i].setAttribute('hidden', 'hidden');
-        }
-      }
-    }
-
-    tabs.forEach(function (tab, index) {
-      tab.addEventListener('click', function () {
-        activate(index);
-      });
-    });
-
-    var tablist = section.querySelector('.faqs__s2-tabs');
-    if (tablist) {
-      tablist.addEventListener('keydown', function (e) {
-        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') {
-          return;
-        }
-        var active = section.querySelector('.faqs__s2-tab.is-active');
-        if (!active) {
-          return;
-        }
-        var idx = parseInt(active.getAttribute('data-faqs-s2-index'), 10);
-        if (isNaN(idx)) {
-          return;
-        }
-        e.preventDefault();
-        var next =
-          e.key === 'ArrowRight'
-            ? (idx + 1) % tabs.length
-            : (idx - 1 + tabs.length) % tabs.length;
-        activate(next);
-        tabs[next].focus();
-      });
-    }
   });
 });

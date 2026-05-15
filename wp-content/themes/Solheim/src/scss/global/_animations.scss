@@ -60,28 +60,37 @@
 }
 
 body:not(.wp-admin) {
-  // Make sure ANY exceptions are mirrored in the animations.js
-  .guten-block:not(.block-search-filters):not(.block-search-results):not(.results-wrapper),
-  header {
+  // Match src/js/animations.js — blocks only (not header / offcanvas).
+  .guten-block:not(.block-search-filters):not(.block-search-results):not(.results-wrapper) {
     opacity: 0;
-    // visibility: hidden;
-    // will-change: opacity, transform;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body:not(.wp-admin) {
+    .guten-block:not(.block-search-filters):not(.block-search-results):not(.results-wrapper) {
+      opacity: 1;
+    }
+  }
+
+  .fadeIn,
+  .fadeIn-down {
+    animation: none !important;
+  }
+}
 
 .fadeIn {
   animation-name: fadeIn;
-  animation-duration: 0.2s;
+  animation-duration: 0.25s;
+  animation-delay: 0.1s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
-  // visibility: visible;
 
   &-down {
     animation-name: slideDown, fadeIn;
-    animation-duration: 0.75s, 0.3s;
+    animation-duration: 0.3s, 0.3s;
+    animation-delay: 0.22s, 0.22s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1), cubic-bezier(0.32, 0, 0.67, 0);
-    // visibility: visible;
   }
 }
